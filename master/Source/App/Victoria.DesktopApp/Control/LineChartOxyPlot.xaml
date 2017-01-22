@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Victoria.DesktopApp.Control.LineChartOxyPlot"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:oxy="clr-namespace:OxyPlot.Wpf;assembly=OxyPlot.Wpf">
+    <Grid Name="MainGrid">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>-->
+        <!--<TextBlock Text="{Binding Name}" HorizontalAlignment="Center"></TextBlock>-->
+        <oxy:PlotView Model="{Binding PlotModel}"  MinHeight="250" MinWidth="500"/>
+    </Grid>
+</UserControl>

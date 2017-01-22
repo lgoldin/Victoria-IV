@@ -1,0 +1,7 @@
+<OutOfBrowserSettings ShortName="Aplicación Victoria.WebApp" EnableGPUAcceleration="False" ShowInstallMenuItem="True">
+  <OutOfBrowserSettings.Blurb>Aplicación Victoria.WebApp en el escritorio, en casa, en el trabajo o en cualquier lugar.</OutOfBrowserSettings.Blurb>
+  <OutOfBrowserSettings.WindowSettings>
+    <WindowSettings Title="Aplicación Victoria.WebApp" />
+  </OutOfBrowserSettings.WindowSettings>
+  <OutOfBrowserSettings.Icons />
+</OutOfBrowserSettings>

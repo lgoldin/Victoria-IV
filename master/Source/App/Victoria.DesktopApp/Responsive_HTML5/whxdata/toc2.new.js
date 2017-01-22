@@ -1,0 +1,4 @@
+(function() {
+var toc =  [ { "type" : "item", "name" : "Descripción de íconos", "url" : "Manual_de_usuario.htm#DescripcionIconosbc-5" }, { "type" : "item", "name" : "Extensión", "url" : "Manual_de_usuario.htm#Extensionbc-6" }, { "type" : "item", "name" : "Exportar Simulación (web)", "url" : "Manual_de_usuario.htm#ExportarSimulacionWebbc-7" }, { "type" : "item", "name" : "Abrir Simulación", "url" : "Manual_de_usuario.htm#AbrirSimulacionbc-8" }, { "type" : "item", "name" : "Guardar Simulación", "url" : "Manual_de_usuario.htm#GuardarSimulacionbc-9" } ];
+window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });
+})();

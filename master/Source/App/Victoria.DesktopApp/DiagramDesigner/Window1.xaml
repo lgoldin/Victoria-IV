@@ -1,0 +1,118 @@
+﻿<Window x:Class="DiagramDesigner.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:s="clr-namespace:DiagramDesigner"
+        xmlns:c="clr-namespace:DiagramDesigner.Controls"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        WindowStartupLocation="CenterScreen"
+        Title="Diagramador"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        mc:Ignorable="d"
+        Focusable="True"
+        Background="Transparent"
+ 		Height="840" Width="1181"
+        MouseLeftButtonDown="WindowMouseLeftButtonDown">
+    <Window.Resources>
+        <ContextMenu x:Key="DesignerCanvasContextMenu">
+            <MenuItem Header="Paste" Command="{x:Static ApplicationCommands.Paste}">
+                <MenuItem.Icon>
+                    <Image Source="Resources/Images/Paste.png" Width="16"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="Select All" Command="{x:Static s:DesignerCanvas.SelectAll}"/>
+        </ContextMenu>
+    </Window.Resources>
+
+    <Border Background="{StaticResource SecondaryColor}" CornerRadius="30" Width="1180">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto" ></ColumnDefinition>
+                        <ColumnDefinition Width="Auto" ></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1" Name="btnMinimize"  Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" Click="BtnMinimize_OnClick">
+                        <Button.Content>
+                            <StackPanel>
+                                <Image Source="/Victoria.UI.SharedWPF;Component/resources/minus.png" Height="18" Width="23" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Column="2" Name="btnMaximize" Padding="3" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" Click="BtnMaximize_OnClick">
+                        <Button.Content>
+                            <StackPanel>
+                                <Image Source="/Victoria.UI.SharedWPF;Component/resources/max.png"  Height="16" Width="16" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Column="3" Name="btnClose" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" Click="BtnClose_OnClick" Margin="0,0,10,0">
+                        <Button.Content>
+                            <StackPanel>
+                                <Image Source="/Victoria.UI.SharedWPF;Component/resources/close.png" Height="18" Width="23" RenderTransformOrigin="0.513,-0.022" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Image Source="/Victoria.UI.SharedWPF;Component/resources/corona.png" Width="36" HorizontalAlignment="Center" Margin="15,5,1045,-2" RenderTransformOrigin="3.821,0.438" />
+                    <Label  Content="Diagrama de Simulación"  Foreground="White" FontSize="18" HorizontalAlignment="Center"  Width="238" Margin="348,0,266,1"/>
+                </Grid>
+                <ContentControl Content="{StaticResource MyToolbar}" Height="100"/>
+            </StackPanel>
+
+            <Grid Margin="0,88.55,0,41.45" Grid.RowSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="291"/>
+                    <ColumnDefinition Width="889"/>
+                </Grid.ColumnDefinitions>
+                <!-- Toolbox -->
+                <Rectangle Fill="White" HorizontalAlignment="Left" Margin="0,36,0,-16" Stroke="White" Width="1180" Grid.ColumnSpan="2"/>
+                <!-- Toolbox -->
+                <StackPanel Grid.Column="0" Margin="4,51,6,0" >
+                    <Expander Header="Figuras" Content="{StaticResource ShapeStencils}" IsExpanded="True" Margin="8,10,8,0"/>
+                    <GroupBox Header="Inicialización de Variables" Margin="8" Padding="3" Height="Auto">
+                        <DataGrid x:Name="dataGridVariables"  HorizontalAlignment="Center" Margin="1,1,1,1" ScrollViewer.VerticalScrollBarVisibility="Auto"  Height="180" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" SelectionMode="Single" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+
+                                <DataGridTextColumn Binding="{Binding nombre}"  Header="Variable"  Width="100" />
+                                <DataGridTextColumn Binding="{Binding valor}" Header="Valor Inicial" Width="110"/>
+                                <!-- <DataGridCheckBoxColumn Binding="{Binding vector}" IsReadOnly="True" Header="Vector" Width="50"/> -->
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                    <!-- Descomentar para hacer aparecer el toolbox -->
+                </StackPanel>
+                <!-- Designer -->
+                <Grid  Margin="3,56,0,0" Grid.Column="1">
+                    <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                      VerticalScrollBarVisibility="Auto" Margin="0,10,14,-11">
+                        <s:DesignerCanvas Focusable="true" x:Name="MyDesigner"
+                            Background="{StaticResource WindowBackgroundBrush}" FocusVisualStyle="{x:Null}"
+                          ContextMenu="{StaticResource DesignerCanvasContextMenu}"/>
+                    </ScrollViewer>
+                </Grid>
+                <Button x:Name="button" Width="45" Padding="3" Height="70" Style="{StaticResource ToolBarButtonBaseStyle}"
+                        HorizontalContentAlignment="Center" Click="BtnClose_OnClick" Grid.Column="1" HorizontalAlignment="Left" Margin="830,-39,0,0" VerticalAlignment="Top">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="/Victoria.UI.SharedWPF;Component/resources/back.png" Width="25"/>
+                            <TextBlock Grid.Row="1" Text="Atrás" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

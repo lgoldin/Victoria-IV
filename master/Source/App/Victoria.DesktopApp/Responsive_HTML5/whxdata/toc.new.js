@@ -1,0 +1,4 @@
+(function() {
+var toc =  [ { "type" : "book", "name" : "Victoria 2.0", "key" : "toc1", "url" : "Manual_de_usuario.htm#Introducci_n" }, { "type" : "book", "name" : "Archivo de Simulación", "key" : "toc2", "url" : "Manual_de_usuario.htm#Archivo_de_Simulaci_nbc-4" }, { "type" : "book", "name" : "Escenarios", "key" : "toc3", "url" : "Manual_de_usuario.htm#Escenariosbc-10" }, { "type" : "book", "name" : "Gráficos", "key" : "toc4", "url" : "Manual_de_usuario.htm#Gr_ficosbc-15" }, { "type" : "book", "name" : "Simulación", "key" : "toc5", "url" : "Manual_de_usuario.htm#Simulaci_nbc-18" } ];
+window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });
+})();

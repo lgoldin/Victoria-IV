@@ -1,0 +1,35 @@
+﻿<Window x:Class="Victoria.DesktopApp.View.GetWebExcercisePopUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Name="LoginPopuP"
+        Title="LoginPopuP" Height="150" Width="300">
+    <Border CornerRadius="30" Padding="10" Background="{StaticResource SecondaryColor}" MouseLeftButtonDown="mainBorder_OnMouseDown" Width="300" Height="150">
+        <StackPanel x:Name="popupContainer">
+            <Label>Usuario</Label>
+            <TextBox Text="{Binding User, ElementName=LoginPopuP, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+
+            <Label>Contraseña</Label>
+            <PasswordBox x:Name="PasswordBox"></PasswordBox>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,0,0" VerticalAlignment="Bottom">
+                <Button x:Name="btnAccept" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Right" Margin="5" Click="btnAccept_OnClick">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Victoria.UI.SharedWPF;Component/resources/accept.png" Height="32" Width="32"/>
+                        <TextBlock Text="Aceptar" FontFamily="Comic Sans Bold" Foreground="White" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnCancel" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Right" Margin="5" Click="btnCancel_OnClick">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Victoria.UI.SharedWPF;Component/resources/delete.png" Height="32" Width="32"/>
+                        <TextBlock Text="Cancelar" FontFamily="Comic Sans Bold" Foreground="White" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+    </Border>
+</Window>

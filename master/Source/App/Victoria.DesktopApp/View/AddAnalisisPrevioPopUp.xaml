@@ -1,0 +1,217 @@
+﻿<Window x:Class="Victoria.DesktopApp.View.AddAnalisisPrevioPopUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Victoria.DesktopApp.View"
+        mc:Ignorable="d"
+        Title="Análisis Previo" 
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"       
+        ResizeMode="CanResizeWithGrip"
+        Focusable="True" Height="764.275" Width="1028">
+    <Grid Margin="-250,-53,-187,-28" HorizontalAlignment="Right" Width="1465" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border MouseLeftButtonDown="WindowMouseLeftButtonDown" CornerRadius="30" Background="{StaticResource SecondaryColor}"  Padding="0,0,0,0" HorizontalAlignment="Left" Margin="405,120,0,0" Width="755" Grid.Column="1" Height="665" VerticalAlignment="Top">
+            <StackPanel Margin="0,0,0,-17">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto" ></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="1" Name="btnMinimize"  Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" Click="BtnMinimize_OnClick">
+                        <Button.Content>
+                            <StackPanel>
+                                <Image Source="/Victoria.UI.SharedWPF;Component/resources/minus.png" Height="18" Width="23" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Column="2" Name="btnClose" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" Click="BtnClose_OnClick" Margin="0,0,10,0">
+                        <Button.Content>
+                            <StackPanel>
+                                <Image Source="/Victoria.UI.SharedWPF;Component/resources/close.png" Height="18" Width="23" RenderTransformOrigin="0.513,-0.022" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Image Source="/Victoria.UI.SharedWPF;Component/resources/corona.png" Width="34" HorizontalAlignment="Center" Margin="16,0,645,0" RenderTransformOrigin="3.821,0.438" />
+                    <Label  Content="Análisis Previo"  Foreground="White" FontSize="18" HorizontalAlignment="Center"  Width="137" Margin="197,0,155,0.581"/>
+                </Grid>
+                <DockPanel>
+                    <Menu DockPanel.Dock="Top">
+                        <MenuItem Header="Agregar" >
+                            <MenuItem Header="Dato" Click="MenuItem_Click_Dato"/>
+                            <MenuItem Header="Variable de Control"  Click="MenuItem_Click_Control"/>
+                            <MenuItem Header="Variable de Estado"  Click="MenuItem_Click_Estado"/>
+                            <MenuItem Header="Variable de Resultado"  Click="MenuItem_Click_Resultado"/>
+                            <MenuItem Name="nuevoEventoIndependiente" Header="Evento Independiente" Click="MenuItem_Click_Evento" />
+                            <MenuItem Name="nuevaCondicion" Header="Condición" Click="MenuItem_Click_Condicion" />
+                            <MenuItem Name="nuevoEventoDeltaT" Header="Evento Delta T">
+                                <MenuItem Name="nuevoPropio" Header="Propio" Click="MenuItem_Click_Propio"/>
+                                <MenuItem Name="nuevoComprometidoAnterior" Header="Comprometido en Delta T anterior" Click="MenuItem_Click_ComprometidoAnterior"/>
+                                <MenuItem Name="nuevoComprometidoFuturo" Header="Comprometido en Delta T futuro" Click="MenuItem_Click_ComprometidoFuturo"/>
+                                <MenuItem Name="nuevoTEF" Header="Evento TEF" Click="MenuItem_Click_Tef"/>
+                            </MenuItem>
+                        </MenuItem>
+
+
+                        <MenuItem Header="Eliminar" >
+                            <MenuItem Header="Dato" Click="MenuItem_Click_EliminarDato" />
+                            <MenuItem Header="Variable de Control" Click="MenuItem_Click_EliminarVarControl" />
+                            <MenuItem Header="Variable de Estado" Click="MenuItem_Click_EliminarVarEstado" />
+                            <MenuItem Header="Variable de Resultado" Click="MenuItem_Click_EliminarVarResultado"/>
+                            <MenuItem Name="eliminarEventoDeltaT" Header="Evento Delta T" >
+                                <MenuItem Name="eliminarPropio" Header="Propio" Click="MenuItem_Click_EliminarPropio"/>
+                                <MenuItem Name="eliminarComprometidoAnterior" Header="Comprometido en Delta T anterior" Click="MenuItem_Click_EliminarComprometidoAnterior"/>
+                                <MenuItem Name="eliminarComprometidoFuturo" Header="Comprometido en Delta T futuro" Click="MenuItem_Click_EliminarComprometidoFuturo"/>
+                                <MenuItem Name="eliminarTEF" Header="Evento TEF" Click="MenuItem_Click_EliminarTef"/>
+                            </MenuItem>
+                        </MenuItem>
+                        <MenuItem Header="Ayuda" Click="MenuItem_Click_Ayuda">
+                            
+                        </MenuItem>
+                    </Menu>
+                </DockPanel>
+                <Border  Background="White" VerticalAlignment="Center" HorizontalAlignment="Center" MinWidth="550" MinHeight="350" Height="582" Width="755">
+
+                    <Grid Margin="0,0,2,-80">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="13*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name="label" Content="Tipo de Ejercicio"  Margin="37,27,486,600" Grid.ColumnSpan="2"/>
+
+                        <Label x:Name="label_Copy" Content="Variables"    Margin="37,79,411,550" Grid.ColumnSpan="2"/>
+                        <TabControl x:Name="tabControl" Height="190" Margin="54,113,41,0" VerticalAlignment="Top" Grid.ColumnSpan="2">
+                            <TabItem Header="Datos">
+                                <Grid Background="#FFE5E5E5">
+                                    <ListBox x:Name="datos">
+                                        <ListBox.ItemContainerStyle>
+                                            <Style TargetType="{x:Type ListBoxItem}">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </Style>
+                                        </ListBox.ItemContainerStyle>
+                                    </ListBox>
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="Control">
+                                <ListBox x:Name="variablesControl">
+                                    <ListBox.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ListBoxItem}">
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                        </Style>
+                                    </ListBox.ItemContainerStyle>
+                                </ListBox>
+                            </TabItem>
+                            <TabItem Header="Estado" HorizontalAlignment="Left" Height="20" VerticalAlignment="Bottom" Width="54" Margin="-2.137,-2,0,1.96">
+                                <ListBox x:Name="variablesEstado">
+                                    <ListBox.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ListBoxItem}">
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                        </Style>
+                                    </ListBox.ItemContainerStyle>
+                                </ListBox>
+                            </TabItem>
+                            <TabItem Header="Resultados" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="77" Margin="-2.137,-2,-20.89,0">
+                                <ListBox x:Name="variablesResultado">
+                                    <ListBox.ItemContainerStyle>
+                                        <Style TargetType="{x:Type ListBoxItem}">
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                        </Style>
+                                    </ListBox.ItemContainerStyle>
+                                </ListBox>
+                            </TabItem>
+                        </TabControl>
+                        <ComboBox x:Name="comboBox"  RenderTransformOrigin="0.497,0.484" Margin="328,26,43,610" SelectionChanged="comboBox_SelectionChanged" Grid.Column="1">
+                            <ComboBoxItem x:Name="EaE" Content="Evento a Evento (EaE)" />
+                            <ComboBoxItem x:Name="DeltaT" Content="Delta T Constante" Height="21" HorizontalAlignment="Left" Width="326"/>
+                        </ComboBox>
+                        <Grid x:Name="eventosDeltaT" Visibility="Visible" Grid.ColumnSpan="2">
+
+                            <Label x:Name="label_eventos_deltaT" Content="Eventos"  Margin="44,319,597,299"/>
+
+                            <TabControl x:Name="tabControl1" HorizontalAlignment="Left" Height="175" Margin="50,353,0,0" VerticalAlignment="Top" Width="660">
+                                <TabItem Header="Propios" Margin="-2,0">
+                                    <ListBox x:Name="propios">
+                                        <ListBox.ItemContainerStyle>
+                                            <Style TargetType="{x:Type ListBoxItem}">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </Style>
+                                        </ListBox.ItemContainerStyle>
+                                    </ListBox>
+                                </TabItem>
+                                <TabItem Header="Comprometidos en Delta T anteriores" Margin="-2,0">
+                                    <ListBox x:Name="comprometidosAnteriores">
+                                        <ListBox.ItemContainerStyle>
+                                            <Style TargetType="{x:Type ListBoxItem}">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </Style>
+                                        </ListBox.ItemContainerStyle>
+                                    </ListBox>
+                                </TabItem>
+                                <TabItem Header="Comprometidos en Delta T futuros"  Margin="-2,0">
+                                    <ListBox x:Name="comprometidosFuturos">
+                                        <ListBox.ItemContainerStyle>
+                                            <Style TargetType="{x:Type ListBoxItem}">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </Style>
+                                        </ListBox.ItemContainerStyle>
+                                    </ListBox>
+                                </TabItem>
+                                <TabItem Header="Eventos TEF"  Margin="-2,0">
+                                    <ListBox x:Name="tefs">
+                                        <ListBox.ItemContainerStyle>
+                                            <Style TargetType="{x:Type ListBoxItem}">
+                                                <Setter Property="IsEnabled" Value="False"/>
+                                            </Style>
+                                        </ListBox.ItemContainerStyle>
+                                    </ListBox>
+                                </TabItem>
+                            </TabControl>
+                        </Grid>
+                        <Grid x:Name="eventos" Grid.ColumnSpan="2" Visibility="Hidden">
+                            <Label x:Name="label_eventos" Content="Tabla de Eventos Independientes"  Margin="44,319,518,316"/>
+                            <Button x:Name="btnTrash" Background="Transparent" Cursor="Hand" BorderThickness="0" HorizontalAlignment="Right" Margin="0,312,47,310" Click="btnDeleteEvento_OnClick" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="43">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/Victoria.UI.SharedWPF;Component/resources/trash.png" Height="36" Width="37"/>
+                                </StackPanel>
+                            </Button>
+                            <Button x:Name="btnEdit" Background="Transparent" Cursor="Hand" BorderThickness="0" HorizontalAlignment="Right" Margin="0,313,90,310" Click="btnEditEvento_OnClick" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="40">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="/Victoria.UI.SharedWPF;Component/resources/edit-icon.png" Height="28" Width="31" RenderTransformOrigin="0.984,0.222"/>
+                                </StackPanel>
+                            </Button>
+                            <DataGrid x:Name="dataGridEventos" Margin="45,357,38,0" VerticalAlignment="Top" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False" SelectionMode="Single" Height="170" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+
+                                    <DataGridTextColumn Binding="{Binding Nombre}" Header="Evento" IsReadOnly="True" />
+                                    <DataGridTextColumn Binding="{Binding EventoNoCondicionado}" Header="Evento Futuro No Condicionado" IsReadOnly="True"/>
+                                    <DataGridTextColumn Binding="{Binding EventoCondicionado}" Header="Evento Futuro Condicionado" IsReadOnly="True"/>
+                                    <DataGridTextColumn Binding="{Binding Condicion}" Header="Condición" IsReadOnly="True"/>
+                                    <DataGridTextColumn Binding="{Binding Encadenador}" Header="Encadenador" IsReadOnly="True"/>
+                                    <DataGridTextColumn Binding="{Binding TEF}" Header="TEF" IsReadOnly="True"/>
+                                    <DataGridTextColumn Binding="{Binding ArrepentimientoStr}" Header="Arrepentimiento" IsReadOnly="True"/>
+
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                        <Button x:Name="btnchart" Background="Transparent" Cursor="Hand" BorderThickness="0" HorizontalAlignment="Right" Margin="0,537,43,95" Click="btnGenerarDiagrama_OnClick" Width="135" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Grid.Column="1">
+                            <Grid Height="30" Width="130">
+                                <Label Content="Generar diagrama" Height="28" HorizontalAlignment="Left" Width="105" Margin="0,1,2,1" />
+                                <Image Source="/Victoria.UI.SharedWPF;Component/resources/flowchart.png" HorizontalAlignment="Right" Width="33" Margin="-1,-1,0,1" />
+                            </Grid>
+                        </Button>
+                    </Grid>
+                </Border>
+
+            </StackPanel>
+        </Border>
+
+    </Grid>
+</Window>

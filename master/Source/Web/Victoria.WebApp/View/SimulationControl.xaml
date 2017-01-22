@@ -1,0 +1,174 @@
+﻿<UserControl x:Class="Victoria.WebApp.View.SimulationControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="clr-namespace:Victoria.WebApp.Converters"
+    xmlns:sdk="http://schemas.microsoft.com/winfx/2006/xaml/presentation/sdk"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+    xmlns:webApp="clr-namespace:Victoria.WebApp"
+    mc:Ignorable="d"
+    d:DesignHeight="600" d:DesignWidth="1200">
+    <UserControl.Resources>
+        <converters:BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*" MinWidth="230"></ColumnDefinition>
+            <ColumnDefinition Width="5"></ColumnDefinition>
+            <ColumnDefinition Width="50*"></ColumnDefinition>
+            <ColumnDefinition Width="5"></ColumnDefinition>
+            <ColumnDefinition Width="25*" MinWidth="230"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" BorderBrush="{StaticResource MainColor}" BorderThickness="2">
+            <Grid  Background="{StaticResource MainColor}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" Template="{StaticResource TextBoxSearchControlTemplate}" Padding="5,0,5,0" Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Height="25" MinWidth="200" Margin="20,10,20,10"></TextBox>
+                <sdk:DataGrid Grid.Row="1" Background="White"  Style="{StaticResource DataGridStyle}" ColumnHeaderStyle="{StaticResource DataGridHeaderGlassEffect}" ItemsSource="{Binding Path=FilteredVariables}" AutoGenerateColumns="False">
+                    <sdk:DataGrid.Columns>
+                        <sdk:DataGridTextColumn Header="Variable" Width="30*" Binding="{Binding Path=Name}" IsReadOnly="True" CellStyle="{StaticResource CenterCellStyle}"/>
+                        <sdk:DataGridTextColumn Header="Valor Inicial" Width="40*" Binding="{Binding Path=InitialValue}" CellStyle="{StaticResource CenterCellStyle}"/>
+                        <sdk:DataGridTextColumn Header="Valor Simulacion" Width="40*" Binding="{Binding Path=ActualValue}" IsReadOnly="True" CellStyle="{StaticResource CenterCellStyle}"/>
+                    </sdk:DataGrid.Columns>
+                </sdk:DataGrid>
+                <Grid Grid.Row="2" Background="{StaticResource MainColor}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".5*"></ColumnDefinition>
+                        <ColumnDefinition Width=".5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource MainColor}" Cursor="Hand" HorizontalAlignment="Center" BorderThickness="0" Command="{Binding ExecuteStageCommand}">
+                        <i:Interaction.Triggers>
+                            <ei:DataTrigger  Binding="{Binding Path=Executing}" Value="True">
+                                <ei:ChangePropertyAction  Value="Collapsed" PropertyName="Visibility"/>
+                            </ei:DataTrigger>
+                            <ei:DataTrigger  Binding="{Binding Path=Executing}" Value="False">
+                                <ei:ChangePropertyAction  Value="Visible" PropertyName="Visibility"/>
+                            </ei:DataTrigger>
+                        </i:Interaction.Triggers>
+                        <Button.Content>
+                            <StackPanel Background="{StaticResource MainColor}">
+                                <Image Source="/Victoria.UI.Shared;Component/resources/play.png" Height="96" Width="96"/>
+                                <sdk:Label Content="Ejecutar Escenario" Margin="0,-25,0,0" HorizontalAlignment="Center" FontFamily="Comic Sans MS Bold" Foreground="White"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Column="0" Grid.ColumnSpan="2" Cursor="Hand" BorderThickness="0" HorizontalAlignment="Center" Command="{Binding StopExecutionStageCommand}">
+                        <i:Interaction.Triggers>
+                            <ei:DataTrigger  Binding="{Binding Path=Executing}" Value="True">
+                                <ei:ChangePropertyAction  Value="Visible" PropertyName="Visibility"/>
+                            </ei:DataTrigger>
+                            <ei:DataTrigger  Binding="{Binding Path=Executing}" Value="False">
+                                <ei:ChangePropertyAction  Value="Collapsed" PropertyName="Visibility"/>
+                            </ei:DataTrigger>
+                        </i:Interaction.Triggers>
+                        <Button.Content>
+                            <StackPanel Background="{StaticResource MainColor}">
+                                <Image Source="/Victoria.UI.Shared;Component/resources/Stop.png" Height="96" Width="96"/>
+                                <sdk:Label Content="Detener Ejecution" Margin="0,-25,0,0" HorizontalAlignment="Center" FontFamily="Comic Sans MS Bold" Foreground="White"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <!--<Button Grid.Column="1" Background="Transparent" Cursor="Hand" BorderThickness="0" Command="{Binding ExportStageCommand}">
+                        <Button.Content>
+                            <StackPanel Background="{StaticResource MainColor}">
+                                <Image Source="/Victoria.UI.Shared;Component/resources/export.png" Height="96" Width="96"/>
+                                <sdk:Label Content="Exportar Datos" Margin="0,-25,0,0" HorizontalAlignment="Center" FontFamily="Comic Sans MS Bold" Foreground="White"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>-->
+                </Grid>
+            </Grid>
+        </Border>
+        <sdk:GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+
+        <Border  Grid.Column="2"  BorderBrush="{StaticResource MainColor}" BorderThickness="2">
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding Charts}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <webApp:LineChartOxyPlot Visibility="{Binding IsVisible, Converter={StaticResource BoolToVis}, Mode=TwoWay}"></webApp:LineChartOxyPlot>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Border>
+        <sdk:GridSplitter Grid.Column="3" Width="5" HorizontalAlignment="Stretch" />
+
+        <Border  Grid.Column="4"  BorderBrush="{StaticResource MainColor}" BorderThickness="2">
+            <Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <sdk:DataGrid Grid.Row="0" Background="White"  Style="{StaticResource DataGridStyle}" ColumnHeaderStyle="{StaticResource DataGridHeaderGlassEffect}" ItemsSource="{Binding Path=Charts}" SelectedItem="{Binding SelectedChart, Mode=TwoWay}"  AutoGenerateColumns="False">
+                        <sdk:DataGrid.Columns>
+                            <sdk:DataGridTextColumn Header="Grafico" Width="50*" Binding="{Binding Path=Name}" IsReadOnly="True" CellStyle="{StaticResource CenterCellStyle}"/>
+                            <sdk:DataGridTemplateColumn Header="Visible" Width="50*">
+                                <sdk:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding Path=IsVisible, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </DataTemplate>
+                                </sdk:DataGridTemplateColumn.CellTemplate>
+                            </sdk:DataGridTemplateColumn>
+                        </sdk:DataGrid.Columns>
+                    </sdk:DataGrid>
+                    <!--<ItemsControl Grid.Row="0" ItemsSource="{Binding Charts}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid HorizontalAlignment="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width=".2*"></ColumnDefinition>
+                                        <ColumnDefinition Width=".8*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <CheckBox IsChecked="{Binding IsSelected}" FontFamily="Comic Sans Bold" Foreground="White" FontSize="15" HorizontalAlignment="Right"></CheckBox>
+                                    <TextBlock Grid.Column="1" Text="{Binding Name}" FontFamily="Comic Sans Bold" FontWeight="Bold" FontSize="15" Margin="5"></TextBlock>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>-->
+
+                    <Grid Grid.Row="1" Background="{StaticResource MainColor}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width=".5*"></ColumnDefinition>
+                            <ColumnDefinition Width=".5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Background="Transparent" Cursor="Hand" BorderThickness="0" Click="BtnAddChart_OnClick">
+                            <Button.Content>
+                                <StackPanel Background="{StaticResource MainColor}">
+                                    <Image Source="/Victoria.UI.Shared;Component/resources/add.png" Height="96" Width="96"/>
+                                    <sdk:Label Content="Agregar Grafico" Margin="0,-25,0,0" HorizontalAlignment="Center" FontFamily="Comic Sans MS Bold" Foreground="White"/>
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                        <Button Grid.Column="1" Background="Transparent" Cursor="Hand" BorderThickness="0"  Command="{Binding DeleteChartCommand}">
+                            <Button.Content>
+                                <StackPanel Background="{StaticResource MainColor}">
+                                    <Image Source="/Victoria.UI.Shared;Component/resources/delete.png" Height="96" Width="96"/>
+                                    <sdk:Label Content="Eliminar Grafico" Margin="0,-25,0,0" HorizontalAlignment="Center" FontFamily="Comic Sans MS Bold" Foreground="White"/>
+                                </StackPanel>
+                            </Button.Content>
+                        </Button>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

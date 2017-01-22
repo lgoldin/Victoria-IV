@@ -1,0 +1,561 @@
+﻿/* Style Sheet created by ImportDoc 13.0 */
+
+p {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri"    ,sans-serif;
+}
+
+h1 {
+	margin-top:16.0pt;
+	margin-right:0cm;
+	margin-bottom:2.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:14.0pt;
+	font-family:"Cambria"   ,serif;
+	text-transform:uppercase;
+	letter-spacing:.2pt;
+	font-weight:bold;
+}
+
+h2 {
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:14.0pt;
+	font-family:"Cambria"   ,serif;
+	font-weight:bold;
+}
+
+h3 {
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:12.0pt;
+	font-family:"Cambria"   ,serif;
+	letter-spacing:.2pt;
+	font-weight:normal;
+}
+
+h4 {
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:12.0pt;
+	font-family:"Cambria"   ,serif;
+	font-weight:normal;
+	font-style:italic;
+}
+
+h5 {
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Cambria"   ,serif;
+	font-weight:bold;
+}
+
+h6 {
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Cambria"   ,serif;
+	font-weight:bold;
+	font-style:italic;
+}
+
+p.Heading7 {
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri"   ,sans-serif;
+	font-style:italic;
+}
+
+p.Heading8 {
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri"   ,sans-serif;
+	font-weight:bold;
+}
+
+p.Heading9 {
+	margin-top:6.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri"   ,sans-serif;
+	font-style:italic;
+}
+
+p.Toc1 {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:5.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri"   ,sans-serif;
+}
+
+p.Toc2 {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:5.0pt;
+	margin-left:11.0pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri"   ,sans-serif;
+}
+
+p.CommentText {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:normal;
+	font-size:10.0pt;
+	font-family:"Calibri"   ,sans-serif;
+}
+
+p.Header {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri"   ,sans-serif;
+}
+
+p.Footer {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri"   ,sans-serif;
+}
+
+p.Caption {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:9.0pt;
+	font-family:"Calibri"   ,sans-serif;
+	font-weight:bold;
+}
+
+p.Title {
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:normal;
+	font-size:24.0pt;
+	font-family:"Cambria"   ,serif;
+	letter-spacing:-.35pt;
+	font-weight:bold;
+}
+
+p.TitleCxSpFirst {
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:normal;
+	font-size:24.0pt;
+	font-family:"Cambria"   ,serif;
+	letter-spacing:-.35pt;
+	font-weight:bold;
+}
+
+p.TitleCxSpMiddle {
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:normal;
+	font-size:24.0pt;
+	font-family:"Cambria"   ,serif;
+	letter-spacing:-.35pt;
+	font-weight:bold;
+}
+
+p.TitleCxSpLast {
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:center;
+	line-height:normal;
+	font-size:24.0pt;
+	font-family:"Cambria"   ,serif;
+	letter-spacing:-.35pt;
+	font-weight:bold;
+}
+
+p.BodyText {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:10.0pt;
+	font-family:"Arial"   ,sans-serif;
+	color:navy;
+	font-style:italic;
+}
+
+p.Subtitle {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:12.0pt;
+	margin-left:0cm;
+	text-align:center;
+	line-height:105%;
+	font-size:12.0pt;
+	font-family:"Cambria"   ,serif;
+}
+
+span.Hyperlink {
+	color:blue;
+	text-decoration:underline;
+	text-underline:single;
+}
+
+span.HyperlinkFollowed {
+	color:purple;
+	text-decoration:underline;
+	text-underline:single;
+}
+
+p.CommentSubject {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:normal;
+	font-size:10.0pt;
+	font-family:"Calibri"   ,sans-serif;
+	font-weight:bold;
+}
+
+p.Acetate {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:8.0pt;
+	font-family:"Tahoma"   ,sans-serif;
+}
+
+p.NoSpacing {
+	margin:0cm;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:normal;
+	font-size:11.0pt;
+	font-family:"Calibri"   ,sans-serif;
+}
+
+p.ListParagraph {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri"   ,sans-serif;
+}
+
+p.ListParagraphCxSpFirst {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri"   ,sans-serif;
+}
+
+p.ListParagraphCxSpMiddle {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:36.0pt;
+	margin-bottom:.0001pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri"   ,sans-serif;
+}
+
+p.ListParagraphCxSpLast {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:8.0pt;
+	margin-left:36.0pt;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:11.0pt;
+	font-family:"Calibri"   ,sans-serif;
+}
+
+p.Quote {
+	margin-top:10.0pt;
+	margin-right:43.2pt;
+	margin-bottom:8.0pt;
+	margin-left:43.2pt;
+	text-align:center;
+	line-height:110%;
+	font-size:12.0pt;
+	font-family:"Cambria"   ,serif;
+	font-style:italic;
+}
+
+p.IntenseQuote {
+	margin-right:46.8pt;
+	margin-bottom:12.0pt;
+	margin-left:46.8pt;
+	text-align:center;
+	line-height:105%;
+	font-size:13.0pt;
+	font-family:"Cambria"   ,serif;
+}
+
+span.SubtleEmphasis {
+	color:windowtext;
+	font-style:italic;
+}
+
+span.IntenseEmphasis {
+	color:windowtext;
+	font-weight:bold;
+	font-style:italic;
+}
+
+span.SubtleReference {
+	font-variant:small-caps;
+	color:windowtext;
+	text-underline:#7F7F7F;
+	text-decoration:underline;
+	text-underline:single;
+}
+
+span.IntenseReference {
+	font-variant:small-caps;
+	color:windowtext;
+	font-weight:bold;
+	text-decoration:underline;
+	text-underline:single;
+}
+
+span.BookTitle {
+	font-variant:small-caps;
+	color:windowtext;
+	font-weight:bold;
+}
+
+p.TocHeading {
+	margin-top:16.0pt;
+	margin-right:0cm;
+	margin-bottom:2.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:105%;
+	font-size:14.0pt;
+	font-family:"Cambria"   ,serif;
+	text-transform:uppercase;
+	letter-spacing:.2pt;
+	font-weight:bold;
+}
+
+span.Título1Car {
+	font-family:"Cambria"   ,serif;
+	text-transform:uppercase;
+	letter-spacing:.2pt;
+	font-weight:bold;
+}
+
+span.Título3Car {
+	font-family:"Cambria"   ,serif;
+	letter-spacing:.2pt;
+}
+
+span.Título6Car {
+	font-family:"Cambria"   ,serif;
+	font-weight:bold;
+	font-style:italic;
+}
+
+span.PuestoCar {
+	font-family:"Cambria"   ,serif;
+	letter-spacing:-.35pt;
+	font-weight:bold;
+}
+
+span.TextoindependienteCar {
+	font-family:"Arial"   ,sans-serif;
+	color:navy;
+	font-style:italic;
+}
+
+span.TextodegloboCar {
+	font-family:"Tahoma"   ,sans-serif;
+}
+
+span.EncabezadoCar {
+	font-family:"Times New Roman"   ,serif;
+}
+
+span.PiedepáginaCar {
+	font-family:"Times New Roman"   ,serif;
+}
+
+p.Tabletext {
+	margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:6.0pt;
+	margin-left:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	line-height:12.0pt;
+	font-size:10.0pt;
+	font-family:"Calibri"   ,sans-serif;
+}
+
+span.Título2Car {
+	font-family:"Cambria"   ,serif;
+	font-weight:bold;
+}
+
+span.Título4Car {
+	font-family:"Cambria"   ,serif;
+	font-style:italic;
+}
+
+span.Título5Car {
+	font-family:"Cambria"   ,serif;
+	font-weight:bold;
+}
+
+span.Título7Car {
+	font-style:italic;
+}
+
+span.Título8Car {
+	font-weight:bold;
+}
+
+span.Título9Car {
+	font-style:italic;
+}
+
+span.SubtítuloCar {
+	font-family:"Cambria"   ,serif;
+}
+
+span.CitaCar {
+	font-family:"Cambria"   ,serif;
+	font-style:italic;
+}
+
+span.CitadestacadaCar {
+	font-family:"Cambria"   ,serif;
+}
+
+span.AsuntodelcomentarioCar {
+	font-weight:bold;
+}
+
+OL {
+	margin-top:0px;
+	margin-bottom:0px;
+}
+
+UL {
+	margin-top:0px;
+	margin-bottom:0px;
+}
+

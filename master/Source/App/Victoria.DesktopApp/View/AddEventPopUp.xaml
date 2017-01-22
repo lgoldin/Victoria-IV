@@ -1,0 +1,48 @@
+﻿<Window x:Class="Victoria.DesktopApp.View.AddEventPopUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Height="319" Width="359"
+        Name="SimpleVariablePopUp">
+    <Border CornerRadius="30" Padding="10" Background="{StaticResource SecondaryColor}" Margin="29,17,21,0" Height="290" VerticalAlignment="Top">
+        <Grid Margin="1,0,-1,-5">
+            <Label Name="titulo" VerticalAlignment="Center"  Foreground="White" FontSize="15" Margin="92,-11,92,241"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="96,230,0,-11">
+
+                <Button x:Name="btnAccept" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Right" Margin="5,14,5,11" Click="btnAccept_OnClick"  Width="78">
+                    <StackPanel Orientation="Horizontal" Width="78">
+                        <Image Source="/Victoria.UI.SharedWPF;Component/resources/accept.png" Height="32" Width="32"/>
+                        <TextBlock Text="Aceptar"  Foreground="White" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnCancel" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Right" Margin="5,14,5,11"  Click="btnCancel_OnClick" Width="86">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Victoria.UI.SharedWPF;Component/resources/delete.png" Height="32" Width="32"/>
+                        <TextBlock Text="Cancelar"  Foreground="White" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <ComboBox x:Name="eventoNoCondicionado" HorizontalAlignment="Left" Margin="153,57,0,0" VerticalAlignment="Top" Width="130"/>
+            <Label x:Name="label" Content="Evento No Condicionado" Foreground="White" HorizontalAlignment="Left" Margin="5,56,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label_Copy" Content="Evento Condicionado" Foreground="White" HorizontalAlignment="Left" Margin="4,90,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="eventoCondicionado" HorizontalAlignment="Left" Margin="152,91,0,0" VerticalAlignment="Top" Width="130"/>
+            <Label x:Name="label_Copy1" Content="Condición" Foreground="White" HorizontalAlignment="Left" Margin="4,124,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="condicion" HorizontalAlignment="Left" Margin="85,124,0,0" VerticalAlignment="Top" Width="197"/>
+            <Label x:Name="label_Copy2" Content="Encadenador" Foreground="White" HorizontalAlignment="Left" Margin="4,158,0,0" VerticalAlignment="Top"/>
+            <ComboBox x:Name="encadenador" HorizontalAlignment="Left" Margin="152,157,0,0" VerticalAlignment="Top" Width="130"/>
+            <Label x:Name="label_Copy3" Content="Arrepentimiento" Foreground="White" HorizontalAlignment="Left" Margin="4,213,0,0" VerticalAlignment="Top"/>
+            <CheckBox x:Name="arrepentimiento" Content="" HorizontalAlignment="Left" Margin="106,220,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label_Copy4" Content="Nombre Evento: " Foreground="White" HorizontalAlignment="Left" Margin="5,21,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="nombre"  HorizontalAlignment="Left" Height="23" Margin="120,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+            <Label x:Name="label_Copy5" Content="TEF" Foreground="White" HorizontalAlignment="Left" Margin="4,187,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="TEF"  HorizontalAlignment="Left" Height="23" Margin="119,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="165"/>
+            <Label x:Name="label_Copy6" Content="Vector" Foreground="White" HorizontalAlignment="Left" Margin="215,215,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.25,0.615"/>
+            <CheckBox x:Name="vector" Content="" HorizontalAlignment="Left" Margin="264,220,0,0" VerticalAlignment="Top"/>
+
+
+        </Grid>
+
+    </Border>
+</Window>

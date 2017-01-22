@@ -1,0 +1,266 @@
+﻿<UserControl x:Class="Victoria.DesktopApp.Control.StageControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:control="clr-namespace:Victoria.DesktopApp.Control"
+             xmlns:primitives="http://schemas.microsoft.com/wpf/2008/toolkit"
+             xmlns:shared="clr-namespace:Victoria.Shared;assembly=Victoria.Shared"
+             xmlns:controlAnimation="clr-namespace:Victoria.DesktopApp.View">
+    <!--xmlns:draggin="clr-namespace:Victoria.DesktopApp.Behavior"-->
+
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="16*" MinWidth="180"></ColumnDefinition>
+            <ColumnDefinition Width="1"></ColumnDefinition>
+            <ColumnDefinition Width="30*"></ColumnDefinition>
+            <ColumnDefinition Width="1"></ColumnDefinition>
+            <ColumnDefinition Width="18*" MinWidth="200"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" BorderBrush="{StaticResource MainColor}" BorderThickness="2">
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!--<TextBox Grid.Row="0" Template="{StaticResource TextBoxSearchControlTemplate}" Height="25" MinWidth="200" Margin="20,10,20,10" Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}"></TextBox>-->
+                <primitives:DataGrid Grid.Row="1" Background="White" Style="{StaticResource DataGridStyle}" ColumnHeaderStyle="{StaticResource DataGridHeaderGlassEffect}" ItemsSource="{Binding Path=FilteredVariables}" AutoGenerateColumns="False">
+
+                    <primitives:DataGrid.Columns>
+                        <primitives:DataGridTextColumn Header="Variable" Width="40*" Binding="{Binding Path=Name}" IsReadOnly="True">
+                            <primitives:DataGridTextColumn.CellStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                                </Style>
+                            </primitives:DataGridTextColumn.CellStyle>
+                        </primitives:DataGridTextColumn>
+                        <primitives:DataGridTextColumn Header="Valor Inicial" Width="30*" Binding="{Binding Path=InitialValue}">
+                            <primitives:DataGridTextColumn.CellStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                                </Style>
+                            </primitives:DataGridTextColumn.CellStyle>
+                        </primitives:DataGridTextColumn>
+                        <primitives:DataGridTextColumn Header="Valor Simulación" Width="30*" Binding="{Binding Path=ActualValue}" IsReadOnly="True">
+                            <primitives:DataGridTextColumn.CellStyle>
+                                <Style>
+                                    <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                                </Style>
+                            </primitives:DataGridTextColumn.CellStyle>
+                        </primitives:DataGridTextColumn>
+                    </primitives:DataGrid.Columns>
+                </primitives:DataGrid>
+                <Grid Grid.Row="2">
+                <GroupBox x:Name="groupBox" Header="Escenario" Margin="0,1,0,0">
+                <Grid Grid.Row="2" Background="GhostWhite">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width=".5*"></ColumnDefinition>
+                        <ColumnDefinition Width=".5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Padding="2" Background="Transparent" Cursor="Hand" BorderThickness="0" Command="{Binding ExecuteStageCommand}">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Executing}" Value="False">
+                                        <Setter Property="Visibility" Value="Visible"></Setter>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Executing}" Value="True">
+                                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Content>
+                            <StackPanel>
+                                <Image Source="/Victoria.UI.SharedWPF;Component/resources/playG.png"  Height="35" Width="35"/>
+                                <Label Content="Ejecutar" Margin="0,-3,0,0" HorizontalAlignment="Center" Foreground="Black"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Column="0" Background="Transparent" Padding="2" Cursor="Hand" BorderThickness="0"  Click="BtnStopExecutionStageCommand_OnClick">
+                        <Button.Style>
+                            <Style TargetType="Button" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Executing}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible"></Setter>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Executing}" Value="False">
+                                        <Setter Property="Visibility" Value="Collapsed"></Setter>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Content>
+                            <StackPanel>
+                                <Image Source="/Victoria.UI.SharedWPF;Component/resources/stopG.png" Height="35" Width="35"/>
+                                <Label Content="Detener" Margin="0,-3,0,0" HorizontalAlignment="Center" Foreground="Black"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Grid.Column="1" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="btnExportStage_OnClick">
+                        <Button.Content>
+                            <StackPanel>
+                                <Image Source="/Victoria.UI.SharedWPF;Component/resources/back.png" Height="40" Width="40"/>
+                                <Label Content="Exportar Excel / PDF" Margin="0,-5,0,0" HorizontalAlignment="Center"  Foreground="Black"/>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+                </GroupBox>
+                </Grid>
+            </Grid>
+        </Border>
+        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+
+        <Border Grid.Column="2"  BorderBrush="{StaticResource MainColor}" BorderThickness="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"></RowDefinition>
+                    <RowDefinition Height="5*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <GroupBox Header="Gráficos">
+                <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Charts}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <control:LineChartOxyPlot Visibility="{Binding IsVisible, Converter={StaticResource BoolToVis}}"></control:LineChartOxyPlot>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+                </GroupBox>
+                <Border BorderBrush="Transparent" BorderThickness="0" Grid.Row="1">
+                    <GroupBox Header="Animaciones">
+                        <StackPanel>
+
+                            <ItemsControl x:Name="animationsControls" ItemsSource="{Binding Animations}">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <Grid></Grid>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <controlAnimation:AnimationControl></controlAnimation:AnimationControl>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                                <ItemsControl.ItemContainerStyle>
+                                    <Style TargetType="ContentPresenter">
+                                        <!--<Setter Property="draggin:DraggableExtender.CanDrag" Value="True"/>-->
+                                        <!--<Setter Property="Canvas.Left" Value="{Binding X}" />
+                                    <Setter Property="Canvas.Top" Value="{Binding Y}" />-->
+                                    </Style>
+                                </ItemsControl.ItemContainerStyle>
+                            </ItemsControl>
+                        </StackPanel>
+                    </GroupBox>
+                </Border>
+            </Grid>
+
+        </Border>
+        <GridSplitter Grid.Column="3" Width="5" HorizontalAlignment="Stretch" />
+
+        <Border  Grid.Column="4"  BorderBrush="{StaticResource MainColor}" BorderThickness="2">
+            <Grid>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="85.75"></RowDefinition>
+                        <RowDefinition Height="30.25"/>
+                    </Grid.RowDefinitions>
+                    <primitives:DataGrid Grid.Row="0" CanUserSortColumns="false" CanUserResizeColumns="True"  Background="White" Style="{StaticResource DataGridStyle}" ColumnHeaderStyle="{StaticResource DataGridHeaderGlassEffect}" ItemsSource="{Binding Path=Charts}" SelectedItem="{Binding SelectedChart}"  AutoGenerateColumns="False">
+                        <primitives:DataGrid.Columns>
+                            <primitives:DataGridTextColumn Header="Gráfico" Width="50*" Binding="{Binding Path=Name}" IsReadOnly="True">
+                                <primitives:DataGridTextColumn.CellStyle>
+                                    <Style>
+                                        <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                                    </Style>
+                                </primitives:DataGridTextColumn.CellStyle>
+                            </primitives:DataGridTextColumn>
+                            <primitives:DataGridTemplateColumn Header="Visible" Width="50*">
+                                <primitives:DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding Path=IsVisible, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" />
+                                    </DataTemplate>
+                                </primitives:DataGridTemplateColumn.CellTemplate>
+                            </primitives:DataGridTemplateColumn>
+                        </primitives:DataGrid.Columns>
+                    </primitives:DataGrid>
+                    <Grid Grid.Row="1">
+                        <GroupBox x:Name="groupBox2" Header="Gráficos / Animaciones" Margin="0,1,0,-30">
+                            <Grid Grid.Row="1" Background="GhostWhite" Grid.RowSpan="3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width=".5*"></ColumnDefinition>
+                                    <ColumnDefinition Width=".5*"></ColumnDefinition>
+                                    <ColumnDefinition Width=".6*"></ColumnDefinition>
+                                    <ColumnDefinition Width=".6*"></ColumnDefinition>
+                                    <ColumnDefinition Width=".6*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Button Grid.Column="0" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="BtnAddChart_OnClick">
+                                    <Button.Content>
+                                        <StackPanel>
+                                            <Image Source="/Victoria.UI.SharedWPF;Component/resources/chart.png" Height="40" Width="37"/>
+                                            <Label Margin="0,-5,0,0" HorizontalAlignment="Center"   Foreground="Black">
+                                                <TextBlock>Agregar<LineBreak/>Gráfico</TextBlock>
+                                            </Label>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                                <Button Grid.Column="1" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="BtnDeleteChart_OnClick">
+                                    <Button.Content>
+                                        <StackPanel>
+                                            <Image Source="/Victoria.UI.SharedWPF;Component/resources/trashG.png" Height="40" Width="40"/>
+                                            <Label Margin="0,-5,0,0" HorizontalAlignment="Center"   Foreground="Black">
+                                                <TextBlock>Eliminar<LineBreak/>Gráfico</TextBlock>
+                                            </Label>
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                                <Button Grid.Column="2" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="BtnAddAnimation_OnClick">
+                                    <Button.Content>
+                                        <StackPanel Width="63">
+                                            <Image Source="/Victoria.UI.SharedWPF;Component/resources/addG.png" Height="40" Width="40"/>
+                                            <TextBlock Margin="0,2,0,0" HorizontalAlignment="Center" Text="Agregar Animación" TextWrapping="WrapWithOverflow" TextAlignment="Center" Foreground="Black"/>
+
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                                <Button Grid.Column="3" Padding="1" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="BtnExecute_Animations">
+                                <Button.Content>
+                                    <StackPanel Width="63">
+                                        <Image Source="/Victoria.UI.SharedWPF;Component/resources/movieG.png" Height="35" Width="35"/>
+                                        <TextBlock Margin="0,3,0,0" HorizontalAlignment="Center" Text="Ejecución de Animaciones" FontSize="11" TextWrapping="WrapWithOverflow" TextAlignment="Center" Foreground="Black"/>
+
+                                    </StackPanel>
+                                </Button.Content>
+                                </Button>
+                                <Button Grid.Column="4" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Click="BtnInformation_Animations" Margin="0,0,1,0">
+                                    <Button.Content>
+                                        <StackPanel Width="60">
+                                            <Image Source="/Victoria.UI.SharedWPF;Component/resources/help.png" Height="35" Width="35"/>
+                                            <TextBlock Margin="0,0,0,0" HorizontalAlignment="Center" Text="Ayuda sobre Animaciones" FontSize="11" TextWrapping="WrapWithOverflow" TextAlignment="Center" Foreground="Black"/>
+
+                                        </StackPanel>
+                                    </Button.Content>
+                                </Button>
+                            </Grid>
+                        </GroupBox>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

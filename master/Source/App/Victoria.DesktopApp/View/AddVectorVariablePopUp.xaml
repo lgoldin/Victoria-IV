@@ -1,0 +1,35 @@
+﻿<Window x:Class="Victoria.DesktopApp.View.AddVectorVariablePopUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Height="180" Width="300.5"
+        Name="SimpleVariablePopUp">
+    <Border CornerRadius="30" Padding="10" Background="{StaticResource SecondaryColor}" Width="300" Margin="0,0,0,5" Height="170" VerticalAlignment="Bottom">
+
+        <StackPanel Margin="-2,0,2,-5"  >
+            <Label Content="Nombre:" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontSize="15" Margin="1,0,47,0" Width="232"/>
+            <TextBox x:Name="nombreBox" Text="" TextAlignment="Center" Margin="0,5,0,0"   FontSize="15" VerticalAlignment="Center" Height="28"/>
+            <Grid Height="50">
+                <Label Content="Vector:" HorizontalAlignment="Center" VerticalAlignment="Center"  Foreground="White" FontSize="15" Margin="1,13,223,7" Width="56" RenderTransformOrigin="2.078,0.4"/>
+                <CheckBox x:Name="vector" Content=""  Margin="60,0,203,12" VerticalAlignment="Bottom" RenderTransformOrigin="3.05,-1.867" Height="16"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal" Margin="91,5,0,0" Height="37" HorizontalAlignment="Left" Width="189">
+                <Button x:Name="btnAccept" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Right" Margin="5,5,5,0" Click="btnAccept_OnClick" Width="81">
+                    <StackPanel Orientation="Horizontal" Width="78">
+                        <Image Source="/Victoria.UI.SharedWPF;Component/resources/accept.png" Height="32" Width="32"/>
+                        <TextBlock Text="Aceptar"  Foreground="White" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+                <Button x:Name="btnCancel" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Right" Margin="5,5,5,0" Click="btnCancel_OnClick" Width="88">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Victoria.UI.SharedWPF;Component/resources/delete.png" Height="32" Width="32"/>
+                        <TextBlock Text="Cancelar"  Foreground="White" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>
+

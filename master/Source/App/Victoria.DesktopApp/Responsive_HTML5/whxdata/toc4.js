@@ -1,0 +1,1 @@
+gXMLBuffer ="<?xml version=\"1.0\" encoding=\"utf-8\" ?><data  src=\"toc.js\"  name=\"Gráficos\" url=\"Manual_de_usuario.htm#Gr_ficosbc-15\"><item name=\"Agregar gráfico\" url=\"Manual_de_usuario.htm#AgregarGraficobc-16\" /><item name=\"Eliminar gráfico\" url=\"Manual_de_usuario.htm#EliminarGraficobc-17\" /></data>";

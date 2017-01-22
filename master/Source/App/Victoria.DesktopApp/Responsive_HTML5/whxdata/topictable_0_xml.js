@@ -1,0 +1,1 @@
+gXMLBuffer="<?xml version=\"1.0\" encoding=\"UTF-8\"?><ck><di ky=\"0\" rd=\"Manual_de_usuario.htm|Manual de usuario\" ct=\"Victoria 2.0 Esta aplicación se utiliza en conjunto con  la web que pertenece a la suite de Victoria ...\" bc=\"\"/></ck>";

@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='utf-8' ?><Simulacion><Diagrama Name="Inicializar">
+<flowchart>
+    <block id="Inicializar00000" cap-pos="inside" type="nodo_titulo_inicializador" caption="Inicializar" left="600" top="50" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Inicializar00001" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Inicializar00001" cap-pos="inside" type="nodo_sentencia" caption="Tf = 100000.0" left="600" top="125" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Inicializar00002" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Inicializar00002" cap-pos="inside" type="nodo_sentencia" caption="HV = 100001.0" left="600" top="200" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Inicializar00003" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Inicializar00003" cap-pos="inside" type="nodo_sentencia" caption="NS = 0.0" left="600" top="275" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Inicializar00004" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Inicializar00004" cap-pos="inside" type="nodo_sentencia" caption="PPS = 0.0" left="600" top="350" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Inicializar00005" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Inicializar00005" cap-pos="inside" type="nodo_sentencia" caption="PTO = 0.0" left="600" top="425" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Inicializar00006" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Inicializar00006" cap-pos="inside" type="nodo_sentencia" caption="IA = 0.0" left="600" top="500" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Inicializar00007" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Inicializar00007" cap-pos="inside" type="nodo_sentencia" caption="TA = 0.0" left="600" top="575" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Inicializar00008" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Inicializar00008" cap-pos="inside" type="nodo_fin" caption="" left="600" top="650" width="100" height="60" lock="false" zindex="1001">
+    </block>
+</flowchart>
+</Diagrama>
+<Diagrama Name="Principal">
+<flowchart>
+    <block id="Principal00000" cap-pos="inside" type="nodo_inicializador" caption="Inicializar" left="600" top="50" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00001" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00001" cap-pos="inside" type="nodo_condicion" caption="TPLL &lt;= TPS" left="600" top="125" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00002" output="3" input="2" label="" type="none-arrow"/>
+        <connection ref="Principal00003" output="1" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00002" cap-pos="inside" type="nodo_sentencia" caption="T = TPLL" left="1125" top="200" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00004" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00003" cap-pos="inside" type="nodo_sentencia" caption="T = TPS" left="75" top="200" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00011" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00004" cap-pos="inside" type="nodo_diagrama" caption="IA" left="1125" top="275" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00005" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00005" cap-pos="inside" type="nodo_sentencia" caption="TPLL = T + IA" left="1125" top="350" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00006" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00006" cap-pos="inside" type="nodo_sentencia" caption=" NS = NS - 1 " left="1125" top="425" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00007" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00007" cap-pos="inside" type="nodo_condicion" caption=" NS == 1  " left="1125" top="500" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00008" output="3" input="2" label="" type="none-arrow"/>
+        <connection ref="Principal00010" output="1" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00008" cap-pos="inside" type="nodo_diagrama" caption="TA" left="1575" top="575" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00009" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00009" cap-pos="inside" type="nodo_sentencia" caption="TPS = T + TA" left="1575" top="650" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00010" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00010" cap-pos="inside" type="nodo_condicion_cierre" caption="" left="1125" top="725" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00016" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00011" cap-pos="inside" type="nodo_sentencia" caption=" NS = NS + 1 " left="75" top="275" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00012" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00012" cap-pos="inside" type="nodo_condicion" caption="NS &gt; 0" left="75" top="350" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00013" output="3" input="2" label="" type="none-arrow"/>
+        <connection ref="Principal00015" output="1" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00013" cap-pos="inside" type="nodo_diagrama" caption="TA" left="450" top="425" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00014" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00014" cap-pos="inside" type="nodo_sentencia" caption="TPS = T + TA" left="450" top="500" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00015" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00015" cap-pos="inside" type="nodo_condicion_cierre" caption="" left="75" top="575" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00016" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00016" cap-pos="inside" type="nodo_condicion_cierre" caption="" left="600" top="800" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00017" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00017" cap-pos="inside" type="nodo_condicion" caption="T &lt; Tf" left="600" top="875" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00018" output="3" input="2" label="" type="none-arrow"/>
+        <connection ref="Principal00019" output="1" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00018" cap-pos="inside" type="nodo_referencia" caption="A" left="900" top="950" width="100" height="60" lock="false" zindex="1001">
+    </block>
+    <block id="rPrincipal00018" cap-pos="inside" type="nodo_referencia" caption="A" left="525" top="50" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00001" output="3" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00019" cap-pos="inside" type="nodo_resultado" caption=" PPS: NS * 10 &amp;nbsp;PTO:  " left="300" top="950" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="Principal00020" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="Principal00020" cap-pos="inside" type="nodo_fin" caption="" left="300" top="1025" width="100" height="60" lock="false" zindex="1001">
+    </block>
+</flowchart>
+</Diagrama>
+<Diagrama Name="IA">
+<flowchart>
+    <block id="IA00000" cap-pos="inside" type="nodo_titulo_diagrama" caption="IA" left="600" top="50" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="IA00001" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="IA00001" cap-pos="inside" type="nodo_random" caption="" left="600" top="125" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="IA00002" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="IA00002" cap-pos="inside" type="nodo_sentencia" caption=" IA = R + 2 " left="600" top="200" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="IA00003" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="IA00003" cap-pos="inside" type="nodo_fin" caption="" left="600" top="275" width="100" height="60" lock="false" zindex="1001">
+    </block>
+</flowchart>
+</Diagrama>
+<Diagrama Name="TA">
+<flowchart>
+    <block id="TA00000" cap-pos="inside" type="nodo_titulo_diagrama" caption="TA" left="600" top="50" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="TA00001" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="TA00001" cap-pos="inside" type="nodo_random" caption="" left="600" top="125" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="TA00002" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="TA00002" cap-pos="inside" type="nodo_sentencia" caption=" TA = R + 2 " left="600" top="200" width="100" height="60" lock="false" zindex="1001">
+        <connection ref="TA00003" output="4" input="2" label="" type="none-arrow"/>
+    </block>
+    <block id="TA00003" cap-pos="inside" type="nodo_fin" caption="" left="600" top="275" width="100" height="60" lock="false" zindex="1001">
+    </block>
+</flowchart>
+</Diagrama>
+<variables>
+{ "variables": [{"nombre":"Tf","valor":"100000.0"},{"nombre":"HV","valor":"100001.0"},{"nombre":"NS","valor":"0.0"},{"nombre":"PPS","valor":"0.0"},{"nombre":"PTO","valor":"0.0"},{"nombre":"IA","valor":"0.0"},{"nombre":"TA","valor":"0.0"},{"nombre":"IA","valor":"0.0"},{"nombre":"TA","valor":"0.0"},{"nombre":"TPLL","valor":"0.0"},{"nombre":"TPS","valor":"0.0"}]}
+</variables> </Simulacion>

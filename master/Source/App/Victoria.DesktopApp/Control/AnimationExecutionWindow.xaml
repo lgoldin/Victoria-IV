@@ -1,0 +1,130 @@
+﻿<Window x:Class="Victoria.DesktopApp.Control.AnimationExecutionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Victoria.DesktopApp.Control"
+        xmlns:primitives="http://schemas.microsoft.com/wpf/2008/toolkit"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        MouseLeftButtonDown="WindowMouseLeftButtonDown"
+        Height="600" Width="800"
+        Background="Transparent"
+        AllowsTransparency="True"   
+        xmlns:viewModel="clr-namespace:Victoria.ViewModelWPF;assembly=Victoria.ViewModelWPF"
+        xmlns:controlAnimation="clr-namespace:Victoria.DesktopApp.View">
+    <!--xmlns:draggin="clr-namespace:Victoria.DesktopApp.Behavior"-->
+
+    <Window.DataContext>
+        <viewModel:AnimationExecutionViewModel x:Name="AnimationExecutionViewModel"></viewModel:AnimationExecutionViewModel>
+    </Window.DataContext>
+    <Border  CornerRadius="30" Background="{StaticResource SecondaryColor}" >
+
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <primitives:DataGrid Grid.Row="0"  Style="{StaticResource DataGridStyle}" ColumnHeaderStyle="{StaticResource DataGridHeaderGlassEffect}" ItemsSource="{Binding Path=Variables}" AutoGenerateColumns="False" RowHeight="17" Margin="15,35,15,8">
+                <primitives:DataGrid.Columns>
+                    <primitives:DataGridTextColumn Header="Variable" Width="30*" Binding="{Binding Path=Name}" IsReadOnly="True">
+                        <primitives:DataGridTextColumn.CellStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            </Style>
+                        </primitives:DataGridTextColumn.CellStyle>
+                    </primitives:DataGridTextColumn>
+                    <primitives:DataGridTextColumn Header="Valor Inicial" Width="30*" Binding="{Binding Path=InitialValue}">
+                        <primitives:DataGridTextColumn.CellStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            </Style>
+                        </primitives:DataGridTextColumn.CellStyle>
+                    </primitives:DataGridTextColumn>
+                    <primitives:DataGridTextColumn Header="Valor Simulacion" Width="30*" Binding="{Binding Path=ActualValue}" IsReadOnly="True">
+                        <primitives:DataGridTextColumn.CellStyle>
+                            <Style>
+                                <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            </Style>
+                        </primitives:DataGridTextColumn.CellStyle>
+                    </primitives:DataGridTextColumn>
+                </primitives:DataGrid.Columns>
+            </primitives:DataGrid>
+            
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width=".5*"></ColumnDefinition>
+                    <ColumnDefinition Width=".45*"></ColumnDefinition>
+                    <ColumnDefinition Width=".5*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                   
+                <Button Grid.Column="0"  x:Name="executeBtn"  Click="BtnExecute_Animations" IsEnabled="{Binding ExecuteButtonEnabled}" Height="63" VerticalAlignment="Top" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}">
+                    <Button.Content>
+                        <StackPanel >
+                            <!--<Label Content="Exportar Datos" Margin="0,-25,0,0" HorizontalAlignment="Center"   Foreground="White"/>-->
+                            <!--<Label Content="Exportar Datos" Margin="0,-25,0,0" HorizontalAlignment="Center"   Foreground="White"/>-->
+                            <Image Source="/Victoria.UI.SharedWPF;Component/resources/play_button_green.png" Height="25" Width="25" Margin="4" RenderTransformOrigin="0.52,0.84"/>
+                            <!--<Label Content="Exportar Datos" Margin="0,-25,0,0" HorizontalAlignment="Center"   Foreground="White"/>-->
+                            <Label Content="Ejecutar" HorizontalAlignment="Center"  Margin="-8" Foreground="Black" Width="54"/>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Button Grid.Column="1" Click="BtnStop_Animations" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Background="GhostWhite">
+                    <Button.Content>
+
+                        <StackPanel>
+                            <Grid>
+                                <Image Source="/Victoria.UI.SharedWPF;Component/resources/stop_button_red.png" Height="25" RenderTransformOrigin="0.48,-0.24" Margin="14,-6,14,7"/>
+                                <Label Content="Detener" HorizontalAlignment="Center"   Foreground="Black" Margin="1,14,-1,-13" RenderTransformOrigin="-0.769,0.962" Height="25" VerticalAlignment="Top"/>
+                            </Grid>
+                        </StackPanel>
+                    </Button.Content>
+                </Button>
+                <Border Grid.Column="2" BorderThickness="1" Background="LightGray" >
+                    <StackPanel>
+                        <Grid>
+                            <Slider x:Name="SpeedSlider" Maximum="3" Minimum="1" Padding="3" TickFrequency="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True" Value="2"  ValueChanged="SpeedSlider_ValueChanged" Width="172" Margin="46,11,47,-11"/>
+                            <Label Content="Velocidad" HorizontalAlignment="Center" Padding="3" VerticalAlignment="Bottom"  Foreground="Black" Margin="101,0,106,-30"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </Grid>
+            
+
+            <StackPanel Grid.Row="2" Background="GhostWhite" Margin="15,13,15,20">
+
+                <ItemsControl x:Name="animationsControls" ItemsSource="{Binding Animations}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Canvas></Canvas>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <controlAnimation:AnimationExecutionControl></controlAnimation:AnimationExecutionControl>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemContainerStyle>
+                        <Style TargetType="ContentPresenter">
+                            <!--<Setter Property="draggin:DraggableExtender.CanDrag" Value="True"/>-->
+                            <Setter Property="Canvas.Left" Value="{Binding X}" />
+                            <Setter Property="Canvas.Top" Value="{Binding Y}" />
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+                </ItemsControl>
+            </StackPanel>
+            <TextBlock x:Name="label" Text="Ejecución de Animaciones" FontSize="18" HorizontalAlignment="Stretch" TextAlignment="Center" VerticalAlignment="Top" Height="35" Margin="10,5,-10,0"/>
+            <Image Source="/Victoria.UI.SharedWPF;Component/resources/corona.png" Width="30" Height="32" HorizontalAlignment="Center" Margin="15,5,755,233" RenderTransformOrigin="3.821,0.438" />
+            <Button  Name="btnClose" Background="Transparent" Cursor="Hand" BorderThickness="0" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" Click="BtnClose_OnClick" Margin="760,5,0,238" Width="25">
+                <Button.Content>
+                    <Grid>
+                        <Image Source="/Victoria;component/close.png" Height="20" Width="20"/>
+                    </Grid>
+                </Button.Content>
+            </Button>
+
+        </Grid>
+    </Border>
+</Window>

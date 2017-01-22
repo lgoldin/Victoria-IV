@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="OriginalFile" content="Manual de usuario.docx" />
+ <meta name="generator" content="Adobe RoboHelp 2015" />
+<title>Manual de usuario</title>
+<link rel="stylesheet" href="Manual_de_usuario.css" type="text/css" />
+<style type="text/css">
+<!--
+A:visited { color:#800080; }
+A:link { color:#0000ff; }
+-->
+</style>
+<script type="text/javascript" language="JavaScript">
+//<![CDATA[
+function reDo() {
+  if (innerWidth != origWidth || innerHeight != origHeight)
+     location.reload();
+}
+if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+	origWidth = innerWidth;
+	origHeight = innerHeight;
+	onresize = reDo;
+}
+onerror = null; 
+//]]>
+</script>
+<style type="text/css">
+<!--
+div.WebHelpPopupMenu { position:absolute;
+left:0px;
+top:0px;
+z-index:4;
+visibility:hidden; }
+p.WebHelpNavBar { text-align:right; }
+-->
+</style>
+
+<script type="text/javascript" src="template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="template/scripts/common.min.js"></script>
+<script type="text/javascript" src="template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="template/scripts/constants.js"></script>
+<script type="text/javascript" src="template/scripts/utils.js"></script>
+<script type="text/javascript" src="template/scripts/mhutils.js"></script>
+<script type="text/javascript" src="template/scripts/mhlang.js"></script>
+<script type="text/javascript" src="template/scripts/mhver.js"></script>
+<script type="text/javascript" src="template/scripts/settings.js"></script>
+<script type="text/javascript" src="template/scripts/XmlJsReader.js"></script>
+<script type="text/javascript" src="template/scripts/loadparentdata.js"></script>
+<script type="text/javascript" src="template/scripts/loadscreen.js"></script>
+<script type="text/javascript" src="template/scripts/loadprojdata.js"></script>
+<script type="text/javascript" src="template/scripts/mhtopic.js"></script>
+ <link rel="stylesheet" type="text/css" href="template/styles/topic.min.css">
+<script type="text/javascript" >
+gRootRelPath = ".";
+gCommonRootRelPath = ".";
+gTopicId = "";
+</script>
+</head>
+
+<body>
+<script type="text/javascript" src="./ehlpdhtm.js"></script>
+
+<h1 style="text-align: left;"><a name="Victoria_2.0">Victoria 2.0</a></h1>
+<p style="text-align: left;">Esta aplicación se utiliza en conjunto con 
+ la web que pertenece a la suite de Victoria 2. Desde esta última se debe 
+ crear el diagrama de flujo correspondiente a la simulación para luego, 
+ desde la aplicación, realizar la ejecución y explotación de resultados.</p>
+<p style="text-align: left;">Este manual describe la utilización de la 
+ suite desde el momento en que se desea exportar el diagrama de flujo para 
+ luego importarlo en la aplicación.</p>
+<h2 style="text-align: left;"><a name="Objetivo" id="Objetivo">Objetivo</a></h2>
+<p style="text-align: left;">El objetivo de la aplicación es poder realizar 
+ simulaciones que manejan gran volúmenes de datos sin afectar la performance 
+ de la misma. Además, permite realizar un análisis sobre los distintos 
+ escenarios, tanto en tiempo real, mediante los gráficos, como al finalizar 
+ la simulación, mediante la exportación de los resultados en reportes comparativos.</p>
+<h2 style="text-align: left;"><a name="Interfaz" id="Interfaz">Interfaz</a></h2>
+<p style="text-align: left;">En la <i>Figura 1</i> se visualiza la interfaz 
+ gráfica de la aplicación, con el escenario Principal cargado (al momento 
+ de abrir la simulación). La misma permite el modo de pantalla completa 
+ mediante los controles de ventana que se encuentran en la esquina superior 
+ derecha de la misma.</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image001.png" alt="" border="0" style="width:100%; max-width:567px" /></p>
+<p class="Caption" style="text-align: center;">Figura 1 – Interfaz gráfica 
+ de la aplicación</p>
+<h1 style="text-align: left;"><a name="Archivo_de_Simulaci_n" id="Archivo_de_Simulaci_n">Archivo 
+ de Simulación</a></h1>
+<p style="text-align: left;">El archivo que contiene la simulación (exportado 
+ desde la web), se distingue por tener una extensión e ícono específicos, 
+ que permiten encontrar rápidamente las simulaciones almacenadas localmente 
+ para su posterior importación a la aplicación.</p>
+<h2 style="text-align: left;"><a name="DescripcionIconos" id="DescripcionIconos">Descripción 
+ de íconos</a></h2>
+<p style="text-align: left;">Los íconos de aplicación y simulación se diferencian 
+ según indican las figuras 2 y 3.</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image003.png" alt="" border="0" style="width:100%; max-width:60px" /></p>
+<p class="Caption" style="text-align: center;">Figura 2 – Ícono de la aplicación</p>
+<p style="text-align: left;">En la <i>Figura 2</i> se representa el ícono 
+ correspondiente a la aplicación.</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image004.png" alt="" border="0" style="width:100%; max-width:79px" /></p>
+<p class="Caption" style="text-align: center;">Figura 3 – Ícono de la simulación</p>
+<p style="text-align: left;">En la <i>Figura 3</i> se representa el ícono 
+ correspondiente a la simulación.</p>
+<h2 style="text-align: left;"><a name="Extension" id="Extension">Extensión</a></h2>
+<p style="text-align: left;">La extensión del archivo de la simulación 
+ es “<i>.vic”.</i> La misma se genera automáticamente al exportar la simulación 
+ desde la web y se mantiene al guardar la simulación desde la aplicación.</p>
+<h2 style="text-align: left;"><a name="ExportarSimulacionWeb" id="ExportarSimulacionWeb">Exportar 
+ Simulación (web)</a></h2>
+<p style="text-align: left;">Una vez creado el diagrama de flujo de la 
+ simulación, desde la aplicación web, se debe realizar la exportación de 
+ la misma para que luego pueda ser ejecutada desde la aplicación desktop. 
+ Para ello se debe hacer clic en el botón<img src="Manual_de_usuario_archivos/image005.png" alt="" border="0" style="width:100%; max-width:94px" /> como indica 
+ la <i>Figura 4.1</i>.</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image007.png" alt="" border="0" style="width:100%; max-width:567px" /></p>
+<p class="Caption" style="text-align: center;">Figura 4.1 – Exportar simulación</p>
+<span style="font-size: 11.0pt; line-height: 105%; font-family: Calibri, sans-serif;"><br 
+	 style="clear: all;" clear="all" />
+</span> 
+<p style="text-align: left;">&#160;</p>
+<p style="text-align: left;">Al hacer clic en dicho botón, la simulación 
+ se descargará automáticamente con la extensión correspondiente (<i>Figura 
+ 4.2</i>)</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image009.png" alt="" border="0" style="width:100%; max-width:268px" /></p>
+<p class="Caption" style="text-align: center;">Figura 4.2 – Descarga de 
+ la simulación</p>
+<h2 style="text-align: left;"><a name="AbrirSimulacion" id="AbrirSimulacion">Abrir 
+ Simulación</a></h2>
+<p style="text-align: left;">La <i>Figura 5</i> describe la primera pantalla 
+ de la aplicación. Desde aquí se debe indicar el archivo correspondiente 
+ a la simulación que se desea abrir.</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image010.png" alt="" border="0" style="width:100%; max-width:444px" /></p>
+<p class="Caption" style="text-align: center;">Figura 5 – Abrir Simulación</p>
+<p style="text-align: left;">Sin embargo, no es la única manera de abrir 
+ la simulación, también es posible hacerlo desde la interfaz como indica 
+ la <i>Figura 6,</i> haciendo clic en el botón<img src="Manual_de_usuario_archivos/image012.png" alt="" border="0" style="width:100%; max-width:89px" />.</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image014.png" alt="" border="0" style="width:100%; max-width:567px" /></p>
+<p class="Caption" style="text-align: center;">Figura 6 – Abrir Simulación 
+ (interfaz gráfica)</p>
+<p style="text-align: left;">&#160;</p>
+<h2 style="text-align: left;"><a name="GuardarSimulacion" id="GuardarSimulacion">Guardar 
+ Simulación</a></h2>
+<p style="text-align: left;">Para guardar la Simulación, se debe hacer 
+ clic en el botón<img src="Manual_de_usuario_archivos/image016.png" alt="" border="0" style="width:100%; max-width:84px" />, como indica 
+ la <i>Figura 7</i>.</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image018.png" alt="" border="0" style="width:100%; max-width:567px" /></p>
+<p class="Caption" style="text-align: center;">Figura 7 – Guardar Simulación</p>
+<p style="text-align: left;">El mismo guardará la Simulación completa es 
+ decir, los escenarios creados con sus respectivas variables y sus valores, 
+ como así también los gráficos generados, para una posterior ejecución.</p>
+<h1 style="text-align: left;"><a name="Escenarios" id="Escenarios">Escenarios</a></h1>
+<p style="text-align: left;">La aplicación permite la administración y 
+ ejecución de los escenarios de la Simulación, con el objetivo de adaptarlos 
+ a los requerimientos de la misma y poder realizar, posteriormente, la 
+ explotación, comparación y análisis de los resultados.</p>
+<h2 style="text-align: left;"><a name="EditarVariables" id="EditarVariables">Editar 
+ de variables</a></h2>
+<p style="text-align: left;">Las variables son expuestas en una lista que 
+ permite realizar la búsqueda y edición de las mismas, además de poder 
+ visualizar en tiempo real su variación en tiempo de ejecución de la Simulación 
+ y por ende su estado final, en la columna <b>“Valor Simulación”</b>.</p>
+<p style="text-align: left;">La edición se logra haciendo clic sobre la 
+ celda correspondiente a la variable y la columna <b>“Valor Inicial”</b> 
+ como indica la <i>Figura 8</i>.</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image020.png" alt="" border="0" style="width:100%; max-width:423px" /></p>
+<p class="Caption" style="margin-left: 70.8pt; text-align: center; text-indent: 35.4pt;">Figura 
+ 8 – Variables del Escenario</p>
+<h2 style="text-align: left;">&#160;</h2>
+<h2 style="text-align: left;"><a name="AgregarEscenario" id="AgregarEscenario">Añadir 
+ escenario</a></h2>
+<p style="text-align: left;">Para añadir un escenario se debe hacer clic 
+ en el botón<img src="Manual_de_usuario_archivos/image022.png" alt="" border="0" style="width:100%; max-width:80px" />, como indica la <i>Figura 9.1</i>.&#160;</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image024.png" alt="" border="0" style="width:100%; max-width:567px" /></p>
+<p class="Caption" style="text-align: center;">Figura 9.1 – Añadir Escenario</p>
+<p style="text-align: left;">Al hacer clic se puede indicar el nombre que 
+ describa el Escenario (<i>Figura 9.2)</i>.</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image026.png" alt="" border="0" style="width:100%; max-width:248px" /></p>
+<p class="Caption" style="text-align: center;">Figura 9.2 – Descripción 
+ de escenario</p>
+<p style="text-align: left;">De esta manera se puede visualizar en la <i>Figura 
+ 9.3</i> el nuevo escenario agregado, mediante una nueva solapa con el 
+ nombre indicado previamente. Para navegar entre los escenarios se debe 
+ hacer clic en la solapa correspondiente. Para eliminar un escenario se 
+ debe hacer clic en la cruz que se encuentra en la misma solapa como indica 
+ la <i>Figura 9.3</i>.</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image028.png" alt="" border="0" style="width:100%; max-width:463px" /></p>
+<p class="Caption" style="margin-left: 106.2pt; text-align: center; text-indent: 35.4pt;">Figura 
+ 9.3 – Escenario creado</p>
+<h2 style="text-align: left;"><a name="EjecutarEscenario" id="EjecutarEscenario">Ejecutar 
+ escenario</a></h2>
+<p style="text-align: left;">Para la ejecución del Escenario se debe hace 
+ clic en el botón<img src="Manual_de_usuario_archivos/image029.png" alt="" border="0" style="width:100%; max-width:83px" />, como indica 
+ la <i>Figura 10</i>.</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image031.png" alt="" border="0" style="width:100%; max-width:567px" /></p>
+<p class="Caption" style="text-align: center;">Figura 10 – Ejecutar Escenario</p>
+<p style="text-align: left;">Dicha funcionalidad realizará únicamente la 
+ ejecución del escenario que se encuentra visible.</p>
+<h2 style="text-align: left;"><a name="ExportarDatos" id="ExportarDatos">Exportar 
+ datos</a></h2>
+<p style="text-align: left;">Una vez finalizada la ejecución del escenario, 
+ es posible exportar el resultado de la misma, tanto del valor de sus variables 
+ como de los gráficos generados. Esta funcionalidad se realiza haciendo 
+ clic en el botón<img src="Manual_de_usuario_archivos/image033.png" alt="" border="0" style="width:100%; max-width:70px" />, como indica 
+ la <i>Figura 11</i>.</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image035.png" alt="" border="0" style="width:100%; max-width:567px" /></p>
+<p class="Caption" style="text-align: center;">Figura 11 – Exportar Datos 
+ (escenario)</p>
+<p style="text-align: left;">La exportación de los datos del escenario 
+ permite ser almacenada en formato PDF o Excel (ver la sección <i>Exportar 
+ simulación</i>).</p>
+<h1 style="text-align: left;"><a name="Gr_ficos" id="Gr_ficos">Gráficos</a></h1>
+<h2 style="text-align: left;"><a name="AgregarGrafico" id="AgregarGrafico">Agregar 
+ gráfico</a></h2>
+<p style="text-align: left;">Para agregar gráficos a la simulación se debe 
+ seleccionar el escenario sobre el que se desea generar el nuevo gráfico 
+ (es importante aclarar que los gráficos son propios de cada escenario 
+ y permiten el análisis de cada uno para luego, realizar la comparación 
+ con los otros escenarios pertenecientes a la simulación). Luego, hacer 
+ clic en el botón<img src="Manual_de_usuario_archivos/image037.png" alt="" border="0" style="width:100%; max-width:80px" />. Al igual 
+ que en los escenarios, se debe indicar la descripción correspondiente, 
+ como así también las variables que se visualizarán en el mismo, según 
+ muestra la <i>Figura 12</i>.1.</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image039.png" alt="" border="0" style="width:100%; max-width:259px" /></p>
+<p class="Caption" style="text-align: center;">Figura 12.1 – Descripción 
+ del gráfico</p>
+<h2 style="text-align: left;"><a name="EliminarGrafico" id="EliminarGrafico">Eliminar 
+ gráfico</a></h2>
+<p style="text-align: left;">Luego de crear los gráficos necesarios, se 
+ los puede visualizar creados en la solapa del escenario correspondiente, 
+ de forma vertical. Al agregar un gráfico, se habilita la administración 
+ a los mismos, la cual permite la eliminación de cualquier de ellos, haciendo 
+ clic en el botón<img src="Manual_de_usuario_archivos/image041.png" alt="" border="0" style="width:100%; max-width:74px" /> como la posibilidad 
+ de modificar el atributo “<i>Visible</i>” de forma independiente (<i>Figura 
+ 12.2</i>).</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image043.png" alt="" border="0" style="width:100%; max-width:567px" /></p>
+<p class="Caption" style="text-align: center;">Figura 12.2 – Creación del 
+ gráfico</p>
+<h1 style="text-align: left;"><a name="Simulaci_n" id="Simulaci_n">Simulación</a></h1>
+<h2 style="text-align: left;"><a name="EjecutarSimulacion" id="EjecutarSimulacion">Ejecutar 
+ simulación</a></h2>
+<p style="text-align: left;">La ejecución de la simulación consiste en 
+ poder ejecutar la totalidad de escenarios que comprenden la misma de forma 
+ simultánea. Para esto, una vez que se encuentran los escenarios configurados, 
+ se debe hacer clic en el botón<img src="Manual_de_usuario_archivos/image045.png" alt="" border="0" style="width:100%; max-width:103px" />.<br />
+Mediante esta funcionalidad es posible visualizar la ejecución de todos 
+ los escenarios en tiempo real, haciendo clic en la solapa correspondiente 
+ a cada uno de ellos (<i>Figura 13</i>).</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image047.png" alt="" border="0" style="width:100%; max-width:567px" /></p>
+<p class="Caption" style="text-align: center;">Figura 13 – Ejecución de 
+ la simulación</p>
+<h2 style="text-align: left;"><a name="ExportaSsimulacion" id="ExportaSsimulacion">Exportar 
+ simulación</a></h2>
+<p style="text-align: left;">Al finalizar la ejecución de la simulación, 
+ al igual que en los escenarios, es posible realizar la exportación de 
+ los resultados de la misma. Esto se logra haciendo clic en el botón<img src="Manual_de_usuario_archivos/image049.png" alt="" border="0" style="width:100%; max-width:98px" /> (<i>Figura 14.1</i>).</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image051.png" alt="" border="0" style="width:100%; max-width:567px" /></p>
+<p class="Caption" style="text-align: center;">Figura 14.1 – Exportar simulación</p>
+<p style="text-align: left;">Al igual que en el escenario, la exportación 
+ de los resultados se puede realizar en formato PDF como Excel. En el caso 
+ de Excel, el resultado será una planilla donde se podrá visualizar el 
+ resultado de cada escenario (combinación de valores finales de las variables 
+ y los gráficos generados) en una hoja distinta (<i>Figura 14.2</i>).</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image053.png" alt="" border="0" style="width:100%; max-width:588px" /></p>
+<p class="Caption" style="text-align: center;">Figura 14.2 – Exportar resultado 
+ a Excel</p>
+<p style="text-align: left;">Para el caso de que el resultado sea exportado 
+ a un documento PDF, el mismo ordenará los escenarios de forma continua 
+ (uno después de otro), como indica la <i>Figura 14.3</i>.</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image055.png" alt="" border="0" style="width:100%; max-width:589px" /></p>
+<p class="Caption" style="text-align: center;">Figura 14.3 – Exportar resultados 
+ a PDF</p>
+<h1 style="text-align: left;"><a name="SalirDeAplicacion" id="SalirDeAplicacion">Salir 
+ de la aplicación</a></h1>
+<p style="text-align: left;">Para salir de la aplicación, se debe hacer 
+ clic en la cruz que se encuentra en la esquina superior derecha de la 
+ pantalla principal de la simulación (<i>Figura 15.1</i>).</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image057.png" alt="" border="0" style="width:100%; max-width:567px" /></p>
+<p class="Caption" style="text-align: center;">Figura 15.1 – Salir de la 
+ aplicación</p>
+<p style="text-align: left;">Al hacer clic en dicho botón, un cartel, como 
+ el de la <i>Figura 15.2,</i> permitirá la posibilidad de guardar la simulación 
+ y salir, cancelar o simplemente salir de la aplicación sin guardar los 
+ cambios realizados.</p>
+<p style="text-align: center;"><img src="Manual_de_usuario_archivos/image059.png" alt="" border="0" style="width:100%; max-width:425px" /></p>
+<p class="Caption" style="text-align: center;">Figura 15.2 – Salir de la 
+ aplicación (confirmación)</p>
+<p>&#160;</p>
+<p class="BodyText" style="margin-left: 1.0cm;">&#160;</p>
+<p>&#160;</p>
+<p>&#160;</p>
+<p>&#160;</p>
+<p><span style="font-family: Arial, sans-serif;">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></p>
+</body>
+</html>

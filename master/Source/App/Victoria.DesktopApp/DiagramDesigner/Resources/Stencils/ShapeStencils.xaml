@@ -1,0 +1,367 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:DiagramDesigner"
+                    xmlns:c="clr-namespace:DiagramDesigner.Controls" > 
+    
+
+  <RadialGradientBrush x:Key="RadialBrushOrange" Center="0.2, 0.2" GradientOrigin="0.2, 0.2" RadiusX="0.8" RadiusY="0.8">
+    <GradientStop Color="White" Offset="0"/>
+    <GradientStop Color="Orange" Offset="0.9"/>
+  </RadialGradientBrush>
+
+  <RadialGradientBrush x:Key="RadialBrushGreen" Center="0.2, 0.2" GradientOrigin="0.2, 0.2" RadiusX="0.8" RadiusY="0.8">
+    <GradientStop Color="White" Offset="0"/>
+    <GradientStop Color="Green" Offset="0.9"/>
+  </RadialGradientBrush>
+
+  <RadialGradientBrush x:Key="RadialBrushBlue" Center="0.2, 0.2" GradientOrigin="0.2, 0.2" RadiusX="0.8" RadiusY="0.8">
+    <GradientStop Color="White" Offset="0"/>
+    <GradientStop Color="Blue" Offset="0.9"/>
+  </RadialGradientBrush>
+
+    <RadialGradientBrush x:Key="RadialBrushSilver" Center="0.2, 0.2" GradientOrigin="0.2, 0.2" RadiusX="0.8" RadiusY="0.8">
+        <GradientStop Color="White" Offset="0"/>
+        <GradientStop Color="Silver" Offset="0.9"/>
+    </RadialGradientBrush>
+
+    <LinearGradientBrush x:Key="BrushStar" StartPoint="0,0" EndPoint="0,1" Opacity="1">
+    <LinearGradientBrush.GradientStops>
+      <GradientStop Color="#FAFBE9" Offset="0.1" />
+      <GradientStop Color="Green" Offset="1" />
+    </LinearGradientBrush.GradientStops>
+  </LinearGradientBrush>
+
+    <Style x:Key="FlowChartItemStyle" TargetType="Path">
+        <Setter Property="Fill" Value="{StaticResource ItemBrush}"/>
+        <Setter Property="Stroke" Value="{StaticResource ItemStroke}"/>
+        <Setter Property="StrokeThickness" Value="1"/>
+        <Setter Property="StrokeLineJoin" Value="Round"/>
+        <Setter Property="Stretch" Value="Fill"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <!--<Setter Property="BitmapEffect">
+      <Setter.Value>
+        <DropShadowBitmapEffect Color="#AAA" Direction="315" ShadowDepth="10"
+                                Softness="0.5" Opacity="0.6"/>
+      </Setter.Value>
+    </Setter>-->
+    </Style>
+
+    <!-- Process -->
+    <Style x:Key="Process" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 0,0 H 60 V40 H 0 Z"/>
+    </Style>
+
+    <Style x:Key="Process_DragThumb" TargetType="Path" BasedOn="{StaticResource Process}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+        <Setter Property="Fill" Value="Transparent"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+    </Style>
+    <!-- Fin de Process -->
+
+    <!-- nodo_titulo_inicializador -->
+    <Style x:Key="nodo_inicializador" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 0,0 H 60 V40 H 0 Z"/>
+        <Setter Property="Fill" Value="{StaticResource RadialBrushBlue}" />
+        <Setter Property="Stroke" Value="Transparent"/>
+        <Setter Property="Tag" Value="DIAG2" />
+    </Style>
+
+    <Style x:Key="nodo_inicializador_DragThumb" TargetType="Path" BasedOn="{StaticResource Process}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+        <Setter Property="Fill" Value="Transparent"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+        <Setter Property="Tag" Value="DIAG2" />
+    </Style>
+    <!-- Fin de nodo_titulo_inicializador -->
+
+    <!-- Decision -->
+    <Style x:Key="Decision" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 0,20 L 30 0 L 60,20 L 30,40 Z"/>
+    </Style>
+
+    <Style x:Key="Decision_DragThumb" TargetType="Path" BasedOn="{StaticResource Decision}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+        <Setter Property="Fill" Value="Transparent"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+    </Style>
+
+    <!-- Preparation -->
+    <Style x:Key="Preparation" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 0,20 L 10,0  H 50 L 60,20 L 50,40 H10 Z"/>
+    </Style>
+
+    <Style x:Key="Preparation_DragThumb" TargetType="Path" BasedOn="{StaticResource Preparation}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+        <Setter Property="Fill" Value="Transparent"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+    </Style>
+
+    <!-- Document -->
+    <Style x:Key="Document" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 0,0 H 60 V 40 C 30,30 30,50 0,40 Z"/>
+    </Style>
+
+    <Style x:Key="Document_DragThumb" TargetType="Path" BasedOn="{StaticResource Document}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+        <Setter Property="Fill" Value="Transparent"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+    </Style>
+    
+    <!-- nodo_random -->
+    <Style x:Key="nodo_random" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 10,0 L 60 0 L 50,40 L 0,40 Z"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+    </Style>
+
+    <Style x:Key="nodo_random_DragThumb" TargetType="Path" BasedOn="{StaticResource nodo_random}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+        <Setter Property="Fill" Value="Transparent"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+        
+    </Style>
+
+    <!-- Arrepentimiento -->
+    <Style x:Key="nodo_arrepentimiento" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 0 0 H 60 L 50 40 H 10 Z"/>
+        <Setter Property="Fill" Value="{StaticResource RadialBrushSilver}"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+
+    </Style>
+
+    <Style x:Key="nodo_arrepentimiento_DragThumb" TargetType="Path" BasedOn="{StaticResource ManualOperation}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+        <Setter Property="Fill" Value="{StaticResource RadialBrushSilver}"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+    </Style>
+    <!-- Fin Arrepentimiento -->
+
+    <!-- nodo_titulo_diagrama Style-->
+    <Style x:Key="nodo_titulo_diagrama" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 0,20 L 10,0  H 50 L 60,20 L 50,40 H10 Z"/>
+        <Setter Property="Fill" Value="{StaticResource RadialBrushBlue}" />
+        <Setter Property="Stroke" Value="Transparent"/>
+    </Style>
+
+    <Style x:Key="nodo_titulo_diagrama_DragThumb" TargetType="Path" BasedOn="{StaticResource Preparation}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+        <Setter Property="Fill" Value="Transparent"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+    </Style>
+
+    <!-- nodo_titulo_arrepentimiento Style-->
+    <Style x:Key="nodo_titulo_arrepentimiento" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 0,20 L 10,0  H 50 L 60,20 L 50,40 H10 Z"/>
+        <Setter Property="Fill" Value="{StaticResource RadialBrushSilver}" />
+        <Setter Property="Stroke" Value="Transparent"/>
+    </Style>
+
+    <Style x:Key="nodo_titulo_arrepentimiento_DragThumb" TargetType="Path" BasedOn="{StaticResource Preparation}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+        <Setter Property="Fill" Value="Transparent"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+    </Style>
+
+
+    <!-- nodo_condicion_cierre -->
+    <Style x:Key="nodo_condicion_cierre" TargetType="Path" BasedOn="{StaticResource FlowChartItemStyle}">
+        <Setter Property="Data" Value="M 0,0 H 60 V40 H 0 Z" />
+        <Setter Property="Height" Value="10" />
+    </Style>
+
+    <Style x:Key="nodo_condicion_cierre_DragThumb" TargetType="Path" BasedOn="{StaticResource nodo_condicion_cierre}">
+        <Setter Property="IsHitTestVisible" Value="true"/>
+        <Setter Property="Fill" Value="Transparent"/>
+        <Setter Property="Stroke" Value="Transparent"/>
+        <Setter Property="Height" Value="10" />
+    </Style>
+    <!-- Fin de nodo_condicion_cierre -->
+
+
+    <!-- Cpmentar esto para que desaparezca el toolbox -->
+    <s:Toolbox x:Key="FlowChartStencils" ItemSize="60,50" SnapsToDevicePixels="True"
+             ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+    </s:Toolbox>
+    <!-- Cpmentar hasta aca -->
+
+    <s:Toolbox x:Key="ShapeStencils" ItemSize="60,60">
+        <ItemsControl.Items>
+        <!-- Process 2-->
+            <Grid ToolTip="Sentencia" ToolTipService.IsEnabled="False" ToolTipService.InitialShowDelay="0" ToolTipService.BetweenShowDelay="0">
+                <Path Style="{StaticResource Process}" ToolTip="nodo_sentencia">
+                    <s:DesignerItem.DragThumbTemplate>
+                        <ControlTemplate>
+                            <Path Style="{StaticResource Process_DragThumb}"/>
+                        </ControlTemplate>
+                    </s:DesignerItem.DragThumbTemplate>
+                </Path>
+                <TextBox BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Sentencia" Visibility="Hidden" Background="Transparent" MinWidth="130" HorizontalContentAlignment="Center"/>
+            </Grid>
+
+            <!-- fin deProcess2 -->
+            <!-- Condicion -->
+            <Grid Tag="COND" ToolTip="Condición" ToolTipService.IsEnabled="False" ToolTipService.InitialShowDelay="0" ToolTipService.BetweenShowDelay="0">
+                <Path Style="{StaticResource Decision}" ToolTip="nodo_condicion">
+                    <s:DesignerItem.DragThumbTemplate>
+                        <ControlTemplate>
+                            <Path Style="{StaticResource Decision_DragThumb}"/>
+                        </ControlTemplate>
+                    </s:DesignerItem.DragThumbTemplate>
+                </Path>
+                <TextBox BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Text="Condición" Visibility="Hidden" Background="Transparent" MinWidth="130"/>
+                <TextBlock VerticalAlignment="Top" HorizontalAlignment="Left" Text="V" Visibility="Hidden" Background="Transparent" />
+                <TextBlock VerticalAlignment="Top" HorizontalAlignment="Right" Text="F" Visibility="Hidden" Background="Transparent"/>
+            </Grid>
+            <!-- Condicion -->
+            <!-- Preparation 2-->
+            <Grid ToolTipService.IsEnabled="False" ToolTip="Llamada a subdiagrama" ToolTipService.InitialShowDelay="0" ToolTipService.BetweenShowDelay="0">
+                <Path Style="{StaticResource Preparation}" ToolTip="nodo_diagrama">
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource Preparation_DragThumb}"/>
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+            </Path>
+                <TextBox BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Llamada a subdiagrama" Visibility="Hidden" Background="Transparent" MinWidth="130" HorizontalContentAlignment="Center"/>
+            </Grid>
+            <!-- fin de Preparation 2 -->
+            <!-- Document 2-->
+            <Grid ToolTipService.IsEnabled="False" ToolTip="Imprimir resultados" ToolTipService.InitialShowDelay="0" ToolTipService.BetweenShowDelay="0">
+                <Path Style="{StaticResource Document}" ToolTip="nodo_resultado">
+                <s:DesignerItem.DragThumbTemplate>
+                    <ControlTemplate>
+                        <Path Style="{StaticResource Document_DragThumb}"/>
+                    </ControlTemplate>
+                </s:DesignerItem.DragThumbTemplate>
+                <s:DesignerItem.ConnectorDecoratorTemplate>
+                    <ControlTemplate>
+                        <c:RelativePositionPanel Margin="-4">
+                            <s:Connector x:Name="Top" Orientation="Top" c:RelativePositionPanel.RelativePosition="0.5,0"/>
+                            <s:Connector x:Name="Left" Orientation="Left" c:RelativePositionPanel.RelativePosition="0,0.5"/>
+                            <s:Connector x:Name="Right" Orientation="Right" c:RelativePositionPanel.RelativePosition="1,0.5"/>
+                            <s:Connector x:Name="Bottom" Orientation="Bottom" c:RelativePositionPanel.RelativePosition="0.5,0.93"/>
+                        </c:RelativePositionPanel>
+                    </ControlTemplate>
+                </s:DesignerItem.ConnectorDecoratorTemplate>
+            </Path>
+                <TextBox BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Resultados" Visibility="Hidden" Background="Transparent"/>
+            </Grid>
+            <!-- fin de Document 2 -->
+            
+            <!-- nodo_condicion_cierre 2-->
+            <Grid ToolTipService.IsEnabled="False" ToolTip="Cierre condición" ToolTipService.InitialShowDelay="0" ToolTipService.BetweenShowDelay="0">
+                <Path Style="{StaticResource nodo_condicion_cierre}" ToolTip="nodo_condicion_cierre">
+                    <s:DesignerItem.DragThumbTemplate>
+                        <ControlTemplate>
+                            <Path Style="{StaticResource nodo_condicion_cierre_DragThumb}"/>
+                        </ControlTemplate>
+                    </s:DesignerItem.DragThumbTemplate>
+                </Path>
+                <TextBox BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="" Visibility="Hidden" Background="Transparent" BorderBrush="Transparent" IsHitTestVisible="false"/>  
+            </Grid>
+            <!-- fin de nodo_condicion_cierre2 -->
+
+            <!-- nodo_random 2-->
+            <Grid ToolTipService.IsEnabled="False" ToolTip="Random" ToolTipService.InitialShowDelay="0" ToolTipService.BetweenShowDelay="0">
+                <Path Style="{StaticResource nodo_random}" ToolTip="nodo_random">
+                    <s:DesignerItem.DragThumbTemplate>
+                        <ControlTemplate>
+                            <Path Style="{StaticResource nodo_random_DragThumb}"/>
+                        </ControlTemplate>
+                    </s:DesignerItem.DragThumbTemplate>
+                    <s:DesignerItem.ConnectorDecoratorTemplate>
+                        <ControlTemplate>
+                            <c:RelativePositionPanel Margin="-4">
+                                <s:Connector x:Name="Top" Orientation="Top" c:RelativePositionPanel.RelativePosition="0.5,0"/>
+                                <s:Connector x:Name="Left" Orientation="Left" c:RelativePositionPanel.RelativePosition="0.09,0.5"/>
+                                <s:Connector x:Name="Right" Orientation="Right" c:RelativePositionPanel.RelativePosition="0.91,0.5"/>
+                                <s:Connector x:Name="Bottom" Orientation="Bottom" c:RelativePositionPanel.RelativePosition="0.5,1"/>
+                            </c:RelativePositionPanel>
+                        </ControlTemplate>
+                    </s:DesignerItem.ConnectorDecoratorTemplate>
+                </Path>
+                <TextBox BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="R" Visibility="Hidden" Background="Transparent" IsHitTestVisible="False"/>
+            </Grid>
+            <!-- fin de Data 2 -->
+
+            <!-- Elipses de Nodo Iterador -->
+            <Grid ToolTipService.IsEnabled="False" ToolTip="Iterador" ToolTipService.InitialShowDelay="0" ToolTipService.BetweenShowDelay="0" MinWidth="40" MinHeight="40">
+                <Ellipse Fill="{StaticResource RadialBrushOrange}" ToolTip="nodo_iterador" IsHitTestVisible="false"/>
+                <TextBox BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="1:N" Visibility="Hidden" Background="Transparent"/>
+            </Grid>
+            
+            <!-- Elipses de Nodo fin y nodo referencia -->
+            <Grid ToolTipService.IsEnabled="False" ToolTip="Fin diagrama" ToolTipService.InitialShowDelay="0" ToolTipService.BetweenShowDelay="0" MinWidth="40" MinHeight="40">
+                <Ellipse Fill="{StaticResource RadialBrushGreen}" ToolTip="nodo_fin" IsHitTestVisible="false"/>
+                <TextBox BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Fin" Visibility="Hidden" Background="Transparent"/>
+            </Grid>
+
+            <Grid Tag="REFR" ToolTipService.IsEnabled="False" ToolTip="Referencia" ToolTipService.InitialShowDelay="0" ToolTipService.BetweenShowDelay="0" MinWidth="40" MinHeight="40">
+                <Ellipse Fill="{StaticResource RadialBrushBlue}" ToolTip="nodo_referencia" IsHitTestVisible="false"/>
+                <TextBox BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Ref" Visibility="Hidden" Background="Transparent"/>
+            </Grid>
+
+ 
+            <!-- Process 2-->
+            <Grid Tag="DIAG" Uid="Principal" ToolTipService.IsEnabled="False" ToolTip="Inicialición diagrama principal" ToolTipService.InitialShowDelay="0" ToolTipService.BetweenShowDelay="0">
+                <Path Style="{StaticResource nodo_inicializador}" ToolTip="nodo_inicializador">
+                    <s:DesignerItem.DragThumbTemplate>
+                        <ControlTemplate>
+                            <Path Style="{StaticResource nodo_inicializador_DragThumb}"/>
+                        </ControlTemplate>
+                    </s:DesignerItem.DragThumbTemplate>
+                </Path>
+                <TextBox BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Nombre diagrama" Visibility="Hidden" Background="Transparent" MinWidth="150" HorizontalContentAlignment="Center"/>
+            </Grid>
+
+            <!-- fin deProcess2 -->
+
+            <!-- nodo_titulo_diagrama-->
+            <Grid Tag="DIAG" ToolTipService.IsEnabled="False" ToolTip="Inicialición subdiagrama" ToolTipService.InitialShowDelay="0" ToolTipService.BetweenShowDelay="0">
+                <Path Style="{StaticResource nodo_titulo_diagrama}" ToolTip="nodo_titulo_diagrama">
+                    <s:DesignerItem.DragThumbTemplate>
+                        <ControlTemplate>
+                            <Path Style="{StaticResource nodo_titulo_diagrama_DragThumb}"/>
+                        </ControlTemplate>
+                    </s:DesignerItem.DragThumbTemplate>
+                </Path>
+                <TextBox BorderThickness="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Nombre subdiagrama" Visibility="Hidden" Background="Transparent" MinWidth="150" HorizontalContentAlignment="Center"/>
+            </Grid>
+            <!-- fin de Preparation 2  -->
+            
+            <!--Descomentar para tener ARREPENTIMIENTO
+            <Grid Tag="DIAG">
+                <Path Style="{StaticResource nodo_titulo_arrepentimiento}" ToolTip="nodo_titulo_arrepentimiento">
+                    <s:DesignerItem.DragThumbTemplate>
+                        <ControlTemplate>
+                            <Path Style="{StaticResource nodo_titulo_arrepentimiento_DragThumb}"/>
+                        </ControlTemplate>
+                    </s:DesignerItem.DragThumbTemplate>
+                </Path>
+                <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Text="Arrepentimiento" Visibility="Hidden" Background="Transparent"/>
+            </Grid>
+           
+            <Grid>
+                <Path Style="{StaticResource nodo_arrepentimiento}" ToolTip="nodo_arrepentimiento">
+                    <s:DesignerItem.DragThumbTemplate>
+                        <ControlTemplate>
+                            <Path Style="{StaticResource nodo_arrepentimiento_DragThumb}"/>
+                        </ControlTemplate>
+                    </s:DesignerItem.DragThumbTemplate>
+                    <s:DesignerItem.ConnectorDecoratorTemplate>
+                        <ControlTemplate>
+                            <c:RelativePositionPanel Margin="-4">
+                                <s:Connector x:Name="Top" Orientation="Top" c:RelativePositionPanel.RelativePosition="0.5,0"/>
+                                <s:Connector x:Name="Left" Orientation="Left" c:RelativePositionPanel.RelativePosition="0.1,0.5"/>
+                                <s:Connector x:Name="Right" Orientation="Right" c:RelativePositionPanel.RelativePosition="0.9,0.5"/>
+                                <s:Connector x:Name="Bottom" Orientation="Bottom" c:RelativePositionPanel.RelativePosition="0.5,1"/>
+                            </c:RelativePositionPanel>
+                        </ControlTemplate>
+                    </s:DesignerItem.ConnectorDecoratorTemplate>
+                </Path>
+                <TextBox VerticalAlignment="Center" HorizontalAlignment="Center" Text="Arrepentimiento" Visibility="Hidden" Background="Transparent"/>
+            </Grid> -->
+            <!--   fin de Arrepentimiento 2 -->
+        </ItemsControl.Items>
+  </s:Toolbox> 
+</ResourceDictionary>

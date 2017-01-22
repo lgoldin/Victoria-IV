@@ -1,0 +1,212 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:s="clr-namespace:DiagramDesigner">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Styles/Shared.xaml"/>
+        <ResourceDictionary Source="Styles/ToolBar.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <ToolBar x:Key="MyToolbar" Height="80">
+        <!--File-->
+        <Grid  Margin="5,0,3,3">
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
+                
+                <Button Margin="2" Width="45" Style="{StaticResource ToolBarButtonBaseStyle}"
+                        HorizontalContentAlignment="Center"
+                        Command="{x:Static ApplicationCommands.New}"
+                        CommandTarget="{Binding ElementName=MyDesigner}">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="Images/eraser2.png" Width="35" />
+                            <TextBlock Grid.Row="1" Text="Borrar" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+                <StackPanel Orientation="Vertical" Margin="0,2,0,2">
+                    <Button Margin="1" Padding="4" HorizontalContentAlignment="Left"
+                            Style="{StaticResource ToolBarButtonBaseStyle}"
+                            Command="{x:Static ApplicationCommands.Open}"
+                            CommandTarget="{Binding ElementName=MyDesigner}">
+                        <Button.Content>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="Images/open.png" Width="28" Height="22"/>
+                                <TextBlock Margin="1,0,0,0" Text="Abrir" VerticalAlignment="Center"  Grid.Column="1"/>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+                    <Button Margin="2" Padding="4" HorizontalContentAlignment="Left"
+                            Style="{StaticResource ToolBarButtonBaseStyle}"
+                            Command="{x:Static ApplicationCommands.Save}"
+                            CommandTarget="{Binding ElementName=MyDesigner}">
+                        <Button.Content>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="Images/saveV2.png" Width="20" Height="22"/>
+                                <TextBlock Margin="2,0,0,0" Text="Guardar" VerticalAlignment="Center" Grid.Column="1"/>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+             
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+
+        <!--Edit-->
+        <Grid  Margin="3">
+            <StackPanel Orientation="Vertical" Margin="5,2,0,2">
+                <Button Margin="1" Padding="4" HorizontalContentAlignment="Left"
+                            Style="{StaticResource ToolBarButtonBaseStyle}"
+                            Command="{x:Static ApplicationCommands.Paste}"
+                            CommandTarget="{Binding ElementName=MyDesigner}">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="Images/paste.png" Width="22" Height="21"/>
+                            <TextBlock  Margin="2,0,0,0" Text="Pegar" VerticalAlignment="Bottom" HorizontalAlignment="Center" Grid.Column="1"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+
+
+                <Button Margin="1" Padding="3" HorizontalContentAlignment="Left"
+                            Style="{StaticResource ToolBarButtonBaseStyle}"
+                            Command="{x:Static ApplicationCommands.Cut}"
+                            CommandTarget="{Binding ElementName=MyDesigner}">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="Images/cut.png" Width="26" Height="22"/>
+                            <TextBlock Margin="0,0,0,0" Text="Cortar" VerticalAlignment="Center" Grid.Column="1"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <Grid Margin="3">
+            <StackPanel Orientation="Vertical" Margin="5,2,0,2">
+
+                <Button Margin="1" Padding="4" HorizontalContentAlignment="Left"
+                            Style="{StaticResource ToolBarButtonBaseStyle}"
+                            Command="{x:Static ApplicationCommands.Copy}"
+                            CommandTarget="{Binding ElementName=MyDesigner}">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="Images/copy.png" Width="24" Height="22"/>
+                            <TextBlock Margin="3,0,0,0" Text="Copiar" VerticalAlignment="Center" Grid.Column="1"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+                <Button Margin="1" Padding="3" HorizontalContentAlignment="Left"
+                            Style="{StaticResource ToolBarButtonBaseStyle}"
+                            Command="{x:Static ApplicationCommands.Delete}"
+                            CommandTarget="{Binding ElementName=MyDesigner}">
+                    <Button.Content>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="Images/trash.png" Width="17"/>
+                            <TextBlock Margin="3,0,0,0" Text="Eliminar" VerticalAlignment="Center" Grid.Column="1"/>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+        </Grid>
+        <Grid Margin="3">
+            <Button Margin="1" Padding="4" HorizontalContentAlignment="Left"
+                            Style="{StaticResource ToolBarButtonBaseStyle}"
+                            Command="{x:Static ApplicationCommands.PrintPreview}"
+                            CommandTarget="{Binding ElementName=MyDesigner}">
+                <Button.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="Images/printer.png" Width="30"/>
+                        <TextBlock Margin="3,0,3,0" Text="Imprimir" Width="60" TextWrapping="WrapWithOverflow" VerticalAlignment="Center" TextAlignment="Center" Grid.Column="1"/>
+                    </Grid>
+                </Button.Content>
+            </Button>
+        </Grid>
+        
+        <Grid Margin="3">
+            <Button Margin="1" Padding="4" HorizontalContentAlignment="Left"
+                            Style="{StaticResource ToolBarButtonBaseStyle}"
+                            Command="{x:Static ApplicationCommands.Print}"
+                            CommandTarget="{Binding ElementName=MyDesigner}">
+                <Button.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="Images/exit.png" Width="35"/>
+                        <TextBlock Margin="3,0,3,0" Text="Simular" VerticalAlignment="Center" Grid.Column="1"/>
+                    </Grid>
+                </Button.Content>
+            </Button>
+        </Grid>
+        <!--<Grid Margin="3">
+            <Button Margin="1" Padding="2" HorizontalContentAlignment="Left"
+                            Style="{StaticResource ToolBarButtonBaseStyle}"
+                            Command="{x:Static ApplicationCommands.SaveAs}"
+                            CommandTarget="{Binding ElementName=MyDesigner}">
+                <Button.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="Images/saveV2.png" Width="35"/>
+                        <TextBlock Margin="3,0,3,0" Text="Guardar .vic" VerticalAlignment="Center" Grid.Column="1"/>
+                    </Grid>
+                </Button.Content>
+            </Button>
+        </Grid>-->
+        <Grid Margin="3">
+            <Button Margin="1" Padding="2" HorizontalContentAlignment="Left"
+                            Style="{StaticResource ToolBarButtonBaseStyle}"
+                            Command="{x:Static ApplicationCommands.Help}"
+                            CommandTarget="{Binding ElementName=MyDesigner}">
+                <Button.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Image Source="Images/help.png" Width="38"/>
+                        <TextBlock Margin="3,0,3,0" Text="Ayuda" VerticalAlignment="Center" Grid.Column="1"/>
+                    </Grid>
+                </Button.Content>
+            </Button>
+        </Grid>
+
+
+
+    </ToolBar>
+</ResourceDictionary>
